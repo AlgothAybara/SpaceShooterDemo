@@ -2,9 +2,9 @@
 
 Creating a top-down 2D space adventure/rpg. In it, you are a pilot of a spaceship trying to make your mark in the great unknowns of space. 
 
-I grew up playing similar games and have always wanted to make my own. This is the start of the great unknowns of gae development.
+I grew up playing similar games and have always wanted to make my own. This is the start of my venture into the great unknowns of game development.
 
-So far the game is pretty simple to play using wsad or the arrow keys to move and the spacebar to shoot. 
+So far the game is pretty simple to play thus far using wsad or the arrow keys to move and the spacebar to shoot. 
 
 
 [Software Demo Video](http://youtube.link.goes.here)
