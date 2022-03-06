@@ -20,7 +20,7 @@ So far the game is pretty simple to play thus far using wsad or the arrow keys t
 # Useful Websites
 
 * [Unity Documentation](https://docs.unity3d.com/)
-* [Ableton REference Manual](https://www.ableton.com/en/manual/welcome-to-live/)
+* [Ableton Reference Manual](https://www.ableton.com/en/manual/welcome-to-live/)
 
 # Future Work
 
