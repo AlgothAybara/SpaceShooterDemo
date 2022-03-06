@@ -7,7 +7,7 @@ I grew up playing similar games and have always wanted to make my own. This is t
 So far the game is pretty simple to play thus far using wsad or the arrow keys to move and the spacebar to shoot. 
 
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/ikym6cU7vuQ)
 
 # Development Environment
 
