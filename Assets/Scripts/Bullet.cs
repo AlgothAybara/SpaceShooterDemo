@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {   // Destroys object on collision
+    public float time = 2;
+
     void OnCollisionEnter(Collision collision){
         // Destroys object
         Destroy(gameObject);
@@ -11,6 +13,6 @@ public class Bullet : MonoBehaviour
 
     // Destroys object after timeout
     void Start(){
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, time);
     }
 }
