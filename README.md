@@ -6,8 +6,10 @@ I grew up playing similar games and have always wanted to make my own. This is t
 
 So far the game is pretty simple to play thus far using wsad or the arrow keys to move and the spacebar to shoot. 
 
+Currently there is an NPC ship that has an AI that will chase and shoot at you, engaging in a dogfight. However, since ship health has not been incorporated as of yet, it is unable to hurt you. This branch's purpose is to focus on the development of NPC AI and hostility levels.
 
-[Software Demo Video](https://youtu.be/ikym6cU7vuQ)
+
+[Software Demo Video](https://youtu.be/Ldp0RRga7RY)
 
 # Development Environment
 
@@ -26,7 +28,7 @@ So far the game is pretty simple to play thus far using wsad or the arrow keys t
 
 * Ship Class
 * NPC/MOB Classes
-* NPC/MOB AI
+* More NPC AI
 * Audio Library
 * 3D model Library 
 * UI
