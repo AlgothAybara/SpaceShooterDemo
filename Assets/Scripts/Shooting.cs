@@ -22,11 +22,11 @@ public class Shooting : MonoBehaviour
             // sets the shot cooldown
             nextShot = Time.time + rateOfFire;
             // calls the shoot function
-            Shoot();
+            Shoot(firePoint);
         }
     }
 
-    void Shoot()
+    public void Shoot(Transform firePoint)
     {
         // Creates a variation float
         float rand = Random.Range(-.1f, .1f);
