@@ -29,8 +29,6 @@ public class NPC_Behavior : MonoBehaviour
     private float inverse = -1;
 #endregion
 
-
-
     // Start runs when attached assets are initiated
     void Start(){
         RandomRotation();
@@ -124,10 +122,10 @@ public class NPC_Behavior : MonoBehaviour
                 Movement();
             }
 
-            // Checks if target in range
             if(distance < 1){
                 approach = false;
             }
+            // Checks if target in range
             if(distance < range*2 && Time.time>nextShot){           
                 // sets the shot cooldown
                 nextShot = Time.time + rateOfFire;
