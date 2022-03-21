@@ -4,12 +4,35 @@ using UnityEngine;
 
 public class NPC_Behavior : MonoBehaviour
 {
-    Transform player;
     public float hostility = 0;
-    public float rotate_speed = 90f;
+
+#region Movement Variables
+    public float rotate_speed = 5f;
+    public float maxSpeed = 100f;
+    public float moveSpeed = 50f;
+    public bool approach = false;
+    public Rigidbody rb;
 
     private float last_distance = 0;
+    private Transform player;
+#endregion
 
+#region Shooting Variables
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public AudioSource lazer;
+    public float range = 20f;
+    public float rateOfFire = 0.1f;
+    public float bulletForce = 20f;
+
+    private float nextShot = 0;
+    private float inverse = -1;
+#endregion
+
+    // Start runs when attached assets are initiated
+    void Start(){
+        RandomRotation();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,50 +45,11 @@ public class NPC_Behavior : MonoBehaviour
             }
         }
         
-        // Gets distance between objects
-        float distance = Vector3.Distance (player.position, transform.position);
-        // Sets state of fly by
-        bool approach = true;
-
-        // Chasing target and shooting
-        if(approach){
-            FacePlayer();
-            // Movement Function Here
-
-            // Checks if target in range
-            if(distance < 10){
-                Debug.Log("Shooting");
-            } 
-        }
-        // Getting out of range for another fly-by
-        else{
-            if(distance <= 25){
-                Debug.Log("Flying Away");
-                // Movement Function Here
-            }
-            else if (distance > 25){
-                Debug.Log("Turning Around");
-                FacePlayer();
-
-                // If target ship is approaching
-                if(last_distance < distance){
-                    approach = true;
-                }
-                //else if ()
-            }
-        }
-        // checks if target is in range
-        
-        // checks if distance is increasing
-        // else if(last_distance < distance)
-        // {
-            
-        // }
-
-        last_distance = distance;
-        
+        MidFighter_Attack_AI();
     }
 
+    // Points GO towards the player object
+    // Used in Hostile NPC AIs
     Quaternion FacePlayer(){
         // gets difference between player and this GO's position
         Vector3 dir = player.position - transform.position;
@@ -99,70 +83,76 @@ public class NPC_Behavior : MonoBehaviour
         }
         else {
             // sets speed and direction of movement
-            Vector3 movement = transform.right * Mathf.Clamp01(vAxis) * moveSpeed;
+            Vector3 movement = transform.right * moveSpeed;
             // adds movement variable to velocity
             rb.AddForce(movement);
 
         }
-
-        // constrains the object to be within certian x/y parameters
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10000f, 10000f), Mathf.Clamp(transform.position.y, -10000f, 10000f), 0);
-
     }
 
-    // Rotates an object roughly 180 directions from velocity
-    void Rotate180(){
-        // obtains smallest angle between velocity and 180 from it
-        float angle = SignedAngleTo(-rb.velocity,transform.right,transform.forward);
-
-        // checks if angle is within 2 degrees
-        if (Mathf.Abs(angle) > 2){
-            // returns the sign on the angle
-            float sign = Signed(angle);
-            // creates new vector 3 object with rotation
-            Vector3 newRotation = new Vector3( 0, 0, -sign * rotateSpeed ); 
-            // applies rotation object to gameobject's rotation
-            transform.Rotate(Vector3.forward * newRotation.z); 
-        } 
+    public void Shoot(Transform firePoint)
+    {
+        float force = bulletForce + rb.velocity.magnitude;
+        Debug.Log(force);
+        // Creates a variation float
+        float rand = Random.Range(-.1f, .1f);
+        // creates variation Vector3
+        Vector3 randVariation = new Vector3(rand, 0, 0);
+        // Adds variation to direction vector3
+        Vector3 dir = (randVariation + -firePoint.right).normalized;
+        // instantiates bullet object
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        // gets bullet rigidbody
+        Rigidbody bullet_rb = bullet.GetComponent<Rigidbody>();
+        // sets bullet direction and adds instant force
+        bullet_rb.AddForce(dir * force, ForceMode.Impulse);
+        // Plays Audio Effect
+        lazer.Play();
     }
 
-    // Rotates object in direction of input
-    void Rotation(){
-        // checks if down button is pressed
-        if( Input.GetAxis("Vertical") < 0 && rb.velocity.sqrMagnitude > 0.01f){
-            // rotates the gameobject 180 degrees from velocity
-            Rotate180();
-        } else {
-            // obtain rotation from input and rotate speed
-            float rotation = -hAxis * rotateSpeed;
-            // applies new rotation to game object
-            transform.Rotate(Vector3.forward * rotation);
+    void MidFighter_Attack_AI(){
+        // Gets distance between objects
+        float distance = Vector3.Distance (player.position, transform.position);
+        // Sets state of fly by
+
+        Quaternion target = FacePlayer();
+        // Chasing target and shooting
+        if(approach){
+            if (transform.rotation == target){
+                Movement();
+            }
+
+            if(distance < 1){
+                approach = false;
+            }
+            // Checks if target in range
+            if(distance < range*2 && Time.time>nextShot){           
+                // sets the shot cooldown
+                nextShot = Time.time + rateOfFire;
+                // calls the shoot function
+                Shoot(firePoint);
+            } 
         }
+        // Getting out of range for another fly-by
+        else{
+            if(distance <= 50){
+                Movement();
+            }
+            else {
+                // If target ship is approaching
+                if(last_distance < distance && distance > 10){
+                    approach = true;
+                }
+                // if ship is facing target
+                else if (transform.rotation == target){
+                    approach = true;
+                }
+                else{
+                    FacePlayer();
+                }
+            }
+        }
+
+        last_distance = distance;
     }
-
-    // part of extension to Mathf library.
-    // Finds the smallest angle between 2 vectors including its sign
-    float SignedAngleTo(Vector3 a, Vector3 b, Vector3 up) {
-     return Mathf.Atan2(
-       Vector3.Dot(up.normalized, Vector3.Cross(a, b)),
-       Vector3.Dot(a, b)) * Mathf.Rad2Deg;
-   }
-
-    // returns the sign of an object. Similar to another Mathf function, but can also return 0
-    float Signed(float num){
-        // returns 1 if num > 0
-        if(num > 0){
-           return 1;
-       }
-       // returns -1 if num < 0
-       else if (num < 0)
-       {
-           return -1;
-       }
-       // returns 0 if num == 0
-       else
-       {
-           return 0;
-       }
-   }
 }
