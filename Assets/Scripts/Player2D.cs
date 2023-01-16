@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2D : MonoBehaviour
 {
     public float moveSpeed, rotateSpeed, maxSpeed;
-    public Rigidbody rb;
+    public Rigidbody2D rb;
 
     private float hAxis, vAxis;
 
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         }
         else {
             // sets speed and direction of movement
-            Vector3 movement = transform.right * Mathf.Clamp01(vAxis) * moveSpeed;
+            Vector2 movement = transform.right * Mathf.Clamp01(vAxis) * moveSpeed;
             // adds movement variable to velocity
             rb.AddForce(movement);
 
@@ -72,10 +72,10 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(angle) > 2){
             // returns the sign on the angle
             float sign = Signed(angle);
-            // creates new vector 3 object with rotation
-            Vector3 newRotation = new Vector3( 0, 0, -sign * rotateSpeed ); 
+            // creates new vector 2 object with rotation
+            Vector2 newRotation = new Vector2( 0, -sign * rotateSpeed ); 
             // applies rotation object to gameobject's rotation
-            transform.Rotate(Vector3.forward * newRotation.z); 
+            transform.Rotate(Vector2.up * newRotation.x); 
         } 
     }
 
