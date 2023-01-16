@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4348465804989583029}
   - component: {fileID: 4348465804989583028}
   - component: {fileID: 4348465804989583030}
-  - component: {fileID: 4348465804989583031}
   - component: {fileID: 4348465804989583048}
   - component: {fileID: 4348465804989583049}
+  - component: {fileID: 5645876315557516900}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,6 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.062, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,6 +57,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -115,22 +117,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4348465804989583031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4348465804989583025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1473b6b0d2d4f0345858d7485eef13d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 62
-  rotateSpeed: 5
-  maxSpeed: 125
-  rb: {fileID: 4348465804989583030}
 --- !u!114 &4348465804989583048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +153,19 @@ MonoBehaviour:
   lazer: {fileID: 0}
   rateOfFire: 0.2
   bulletForce: 150
+--- !u!114 &5645876315557516900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348465804989583025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4066b347b876bdd45a1506646d186773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 60
+  rotateSpeed: 10
+  maxSpeed: 125
+  rb: {fileID: 4348465804989583030}
