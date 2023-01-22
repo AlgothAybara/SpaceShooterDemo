@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class ShipClass : MonoBehaviour
 {
-    public float hlth, shld, armr, dflt, sped, accl, rttn;
-    // List<object> wpon;
-    // List<List<object>>
+    public string shipName, shipClass;
+    public int maxSpeed, shipMass;
+    public float turnRate, accelerationRate;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public StatTuple armor, shield, fuel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Awake () {
+        armor.ResetCurrent();
+        shield.ResetCurrent();
+        fuel.ResetCurrent();
     }
 }
