@@ -11,7 +11,7 @@ public class StatTuple
     private float regenRate;    
 
     public int GetMax(){
-        reutrn maxValue;
+        return maxValue;
     }
 
     public int GetCurrnet(){
