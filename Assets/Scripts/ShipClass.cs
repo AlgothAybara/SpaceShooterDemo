@@ -10,7 +10,7 @@ public class ShipClass : MonoBehaviour
 
     public string shipName, shipClass;
     public int maxSpeed, shipMass;
-    public float turnRate, accelerationRate, deaccelerationRate;
+    public float turnRate, accelerationRate, decelerationRate;
 
     public StatTuple armor, shield, fuel;
 

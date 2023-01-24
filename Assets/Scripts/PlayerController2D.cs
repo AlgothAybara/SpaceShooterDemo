@@ -72,7 +72,7 @@ public class PlayerController2D : MonoBehaviour
     void Movement(){
         //Allows velocity decay when acceleration is 0
         if(vAxis == 0){
-            rb.drag = shipStats.deaccelerationRate;
+            rb.drag = shipStats.decelerationRate;
         }
         else{
             rb.drag = 0;
