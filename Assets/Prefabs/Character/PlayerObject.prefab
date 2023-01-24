@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4685587448752463238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23658c4b867cdfc4a973b66b5c791977, type: 3}
+  m_Script: {fileID: 11500000, guid: be3fe375c4e9ba44983ac79bef34b525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
@@ -66,7 +66,7 @@ MonoBehaviour:
   maxSpeed: 100
   rb: {fileID: 4685587448752463354}
   shipStats: {fileID: 0}
-  pd: {fileID: 0}
+  pd: {fileID: 4685587448752463236}
 --- !u!50 &4685587448752463354
 Rigidbody2D:
   serializedVersion: 4
