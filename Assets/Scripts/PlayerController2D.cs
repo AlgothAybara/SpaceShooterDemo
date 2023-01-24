@@ -8,7 +8,7 @@ public class PlayerController2D : MonoBehaviour
     public float moveSpeed, rotateSpeed, maxSpeed;
     public Rigidbody2D rb;
     public ShipClass shipStats;
-    public player_data pd;
+    public PlayerData pd;
     private float hAxis, vAxis;
     #endregion
 
@@ -38,7 +38,7 @@ public class PlayerController2D : MonoBehaviour
     #region Custom Methods
     void SetShip(){
         // Gets current ship from player data object
-        pd = GetComponent<player_data>();
+        pd = GetComponent<PlayerData>();
         // Instantiates player_data.Ship as a gameObject in the scene
         GameObject currentShip = Instantiate(pd.Ship) as GameObject;
         // Sets the PlayerOnject as the parent of currentShip
