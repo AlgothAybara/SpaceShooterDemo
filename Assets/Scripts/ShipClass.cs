@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ShipClass : MonoBehaviour
 {
+    public Sprite sprite;
+
+    public PolygonCollider2D shipCollider;
+
     public string shipName, shipClass;
     public int maxSpeed, shipMass;
-    public float turnRate, accelerationRate;
+    public float turnRate, accelerationRate, deaccelerationRate;
 
     public StatTuple armor, shield, fuel;
 
