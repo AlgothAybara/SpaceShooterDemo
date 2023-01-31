@@ -100,8 +100,8 @@ PolygonCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.65999997, y: 0.17999999, z: 0.90999997, w: 0.14999999}
-    pivot: {x: 0.425, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
@@ -212,7 +212,7 @@ MonoBehaviour:
   shipCollider: {fileID: 499682848977829162}
   shipName: 
   shipClass: 
-  maxSpeed: 200
+  maxSpeed: 100
   shipMass: 5
   turnRate: 5
   accelerationRate: 400

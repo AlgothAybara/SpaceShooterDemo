@@ -6,22 +6,24 @@ public class simpleProjectile : MonoBehaviour
 {
     public Sprite sprite; //Image
 
-    public PolygonCollider2D shipCollider; //Collision
+    //public PolygonCollider2D shipCollider; //Collision
 
 
     public string projectileName; //Name of projectile
 
     public int damage; //How much damage?
 
-    public int speed; //How fast/slow?
+    public float force; //How fast/slow?
 
     public float time; //How long before it dies/killed
 
-    void expireProjectile() {
-        return;
+    void OnCollisionEnter(Collision collision){
+        // Destroys object
+        Destroy(gameObject);
     }
 
-    void onCollision() {
-        return;
+    // Destroys object after timeout
+    void Start(){
+        Destroy(gameObject, time);
     }
 }

@@ -87,7 +87,6 @@ public class PlayerController2D : MonoBehaviour
         else {
             // sets speed and direction of movement
             Vector2 movement = transform.right * Mathf.Clamp01(vAxis) * moveSpeed;
-            Debug.Log(movement);
             // adds movement variable to velocity
             rb.AddForce(movement);
 

@@ -6,7 +6,10 @@ public class CombatController : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public GameObject PlayerObject;
     public AudioSource lazer;
+    public PlayerData pd;
+    public List<GameObject> WeaponsList;
 
     public float rateOfFire = 0.5f;
     public float bulletForce = 20f;
@@ -26,8 +29,24 @@ public class CombatController : MonoBehaviour
         }
     }
 
+    void Start(){
+        SetFirePoint();
+        bulletPrefab = WeaponsList[0];
+        bulletForce = bulletPrefab.GetComponent<simpleProjectile>().force;
+    }
+
+    void SetFirePoint(){
+        // Gets current ship from player data object
+
+        firePoint = PlayerObject.transform.GetChild(0).transform.GetChild(0).transform;
+        // pd = GetComponent<PlayerData>();
+
+        // firePoint = pd.Ship.transform.GetChild(0).gameObject.transform;        
+    }
+
     public void Shoot(Transform firePoint)
     {
+        Debug.Log(bulletForce);
         // Creates a variation float
         float rand = Random.Range(-.1f, .1f);
         // creates variation Vector3
@@ -36,11 +55,12 @@ public class CombatController : MonoBehaviour
         Vector3 dir = (randVariation + -firePoint.right).normalized;
         // instantiates bullet object
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Debug.Log(firePoint.position);
         // gets bullet rigidbody
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         // sets bullet direction and adds instant force
         rb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
         // Plays Audio Effect
-        lazer.Play();
+        //lazer.Play();
     }
 }
