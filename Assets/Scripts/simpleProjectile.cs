@@ -6,7 +6,7 @@ public class simpleProjectile : MonoBehaviour
 {
     public Sprite sprite; //Image
 
-    public PolygonCollider2D shipCollider; //Collision
+    public PolygonCollider2D projectileCollider; //Collision
 
 
     public string projectileName; //Name of projectile
