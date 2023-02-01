@@ -46,7 +46,6 @@ public class CombatController : MonoBehaviour
 
     public void Shoot(Transform firePoint)
     {
-        Debug.Log(bulletForce);
         // Creates a variation float
         float rand = Random.Range(-.1f, .1f);
         // creates variation Vector3
@@ -55,7 +54,6 @@ public class CombatController : MonoBehaviour
         Vector3 dir = (randVariation + -firePoint.right).normalized;
         // instantiates bullet object
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Debug.Log(firePoint.position);
         // gets bullet rigidbody
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         // sets bullet direction and adds instant force

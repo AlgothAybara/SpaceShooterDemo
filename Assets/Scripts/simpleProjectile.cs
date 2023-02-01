@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Physics2DModule;
 using UnityEngine;
 
 public class simpleProjectile : MonoBehaviour
 {
-    public Sprite sprite; //Image
-
-    //public PolygonCollider2D shipCollider; //Collision
+    public PolygonCollider2D shipCollider; //Collision
 
 
     public string projectileName; //Name of projectile
@@ -17,7 +16,8 @@ public class simpleProjectile : MonoBehaviour
 
     public float time; //How long before it dies/killed
 
-    void OnCollisionEnter(Collision collision){
+    void OnCollisionEnter2D(Collision collision){
+        Debug.Log(collision);
         // Destroys object
         Destroy(gameObject);
     }

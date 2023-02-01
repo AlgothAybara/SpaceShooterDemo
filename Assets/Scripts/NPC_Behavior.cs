@@ -93,7 +93,6 @@ public class NPC_Behavior : MonoBehaviour
     public void Shoot(Transform firePoint)
     {
         float force = bulletForce + rb.velocity.magnitude;
-        Debug.Log(force);
         // Creates a variation float
         float rand = Random.Range(-.1f, .1f);
         // creates variation Vector3
