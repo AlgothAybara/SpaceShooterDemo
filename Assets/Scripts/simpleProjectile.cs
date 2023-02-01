@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Physics2DModule;
 using UnityEngine;
 
 public class simpleProjectile : MonoBehaviour
@@ -16,7 +15,7 @@ public class simpleProjectile : MonoBehaviour
 
     public float time; //How long before it dies/killed
 
-    void OnCollisionEnter2D(Collision collision){
+    void OnCollisionEnter2D(Collision2D collision){
         Debug.Log(collision);
         // Destroys object
         Destroy(gameObject);
