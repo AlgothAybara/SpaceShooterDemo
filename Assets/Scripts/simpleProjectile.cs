@@ -14,7 +14,7 @@ public class simpleProjectile : MonoBehaviour
 
     public float time; //How long before it dies/killed
 
-    void OnTriggerExit2D(Collider2D other){
+    void OnTriggerEnter2D(Collider2D other){
         Debug.Log("hit detected");
         
         // Destroys object
