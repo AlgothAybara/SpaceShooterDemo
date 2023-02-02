@@ -6,7 +6,6 @@ public class simpleProjectile : MonoBehaviour
 {
     public PolygonCollider2D shipCollider; //Collision
 
-
     public string projectileName; //Name of projectile
 
     public int damage; //How much damage?
@@ -15,14 +14,15 @@ public class simpleProjectile : MonoBehaviour
 
     public float time; //How long before it dies/killed
 
-    void OnCollisionEnter2D(Collision2D collision){
-        Debug.Log(collision);
+    void OnTriggerExit2D(Collider2D other){
+        Debug.Log("hit detected");
+        
         // Destroys object
         Destroy(gameObject);
     }
 
     // Destroys object after timeout
     void Start(){
-        Destroy(gameObject, time);
+        //Destroy(gameObject, time);
     }
 }
