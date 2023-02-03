@@ -17,4 +17,22 @@ public class ShipClass : MonoBehaviour
         shield.ResetCurrent();
         fuel.ResetCurrent();
     }
+
+     public void ApplyDamage(int damage){
+        // Debug.Log(other.gameObject.GetComponent<ShipClass>().shield.currentValue);
+
+        if(shield.GetCurrnet() > 0)
+        {
+            shield.UpdateCurrent(damage);
+        } 
+        else 
+        {
+            armor.UpdateCurrent(damage);
+        }
+
+        if(armor.GetCurrnet() < 0){
+            Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }

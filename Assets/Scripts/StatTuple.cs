@@ -5,8 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class StatTuple
 {
+
     [SerializeField]
     private int maxValue, currentValue;
+
     [SerializeField]
     private float regenRate;    
 
@@ -27,7 +29,8 @@ public class StatTuple
     }
 
     public void UpdateCurrent(int change) {
-        currentValue = Mathf.Clamp(change, 0, maxValue);
         currentValue += change;
+        // currentValue = Mathf.Clamp(change, 0, maxValue);
+        Debug.Log(change);
     }
 }

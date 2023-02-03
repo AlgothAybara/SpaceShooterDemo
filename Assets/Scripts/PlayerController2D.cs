@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2D : Controller2D
+public class PlayerController2D : MovementController2D
 {
     #region Declarations
     #endregion

@@ -54,11 +54,12 @@ public class CombatController : MonoBehaviour
         Vector3 dir = (randVariation + -firePoint.right).normalized;
         // instantiates bullet object
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<simpleProjectile>().parent = PlayerObject.transform.GetChild(0);
         // gets bullet rigidbody
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         // sets bullet direction and adds instant force
         rb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
         // Plays Audio Effect
-        //lazer.Play();
+        //lazer.Play();s
     }
 }

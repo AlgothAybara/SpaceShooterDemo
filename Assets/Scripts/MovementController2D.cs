@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller2D : MonoBehaviour
+public class MovementController2D : MonoBehaviour
 {
     #region Declarations
     public float moveSpeed, rotateSpeed, maxSpeed;
