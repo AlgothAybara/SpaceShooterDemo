@@ -14,10 +14,10 @@ public class MovementController2D : MonoBehaviour
 
     #region Unity Methods
     // Function runs when object is initialized
-    void Start()
+    public virtual void Start()
     {
-        SetShip();
-        RandomRotation();
+        SetStats();
+        // RandomRotation();
     }
 
     // Update is called once per frame
@@ -35,16 +35,12 @@ public class MovementController2D : MonoBehaviour
 #endregion
     
     #region Custom Methods
-    void SetShip(){
+    void SetStats(){
         // Gets current ship from player data object
         pd = GetComponent<PlayerData>();
-        // Instantiates player_data.Ship as a gameObject in the scene
-        GameObject currentShip = Instantiate(pd.Ship) as GameObject;
-        // Sets the PlayerOnject as the parent of currentShip
-        currentShip.transform.parent = this.transform;
 
         // Gets the ship's stats and sets them as movement values
-        shipStats = currentShip.GetComponentInChildren<ShipClass>();
+        shipStats = pd.Ship.GetComponentInChildren<ShipClass>();
         moveSpeed = shipStats.accelerationRate;
         maxSpeed = shipStats.maxSpeed;
         rotateSpeed = shipStats.turnRate;
@@ -52,15 +48,15 @@ public class MovementController2D : MonoBehaviour
     }
 
     
-    // Sets object z rotation to random degree
-    void RandomRotation(){
-        // gets copy of gameobject transform properties
-        var euler = transform.eulerAngles;
-        // sets z rotation to random angle
-        euler.z = Random.Range(0f, 360f);
-        // updates gameobject rotation
-        transform.eulerAngles = euler;
-    }
+    // // Sets object z rotation to random degree
+    // void RandomRotation(){
+    //     // gets copy of gameobject transform properties
+    //     var euler = transform.eulerAngles;
+    //     // sets z rotation to random angle
+    //     euler.z = Random.Range(0f, 360f);
+    //     // updates gameobject rotation
+    //     transform.eulerAngles = euler;
+    // }
 
 
     void Movement(){
