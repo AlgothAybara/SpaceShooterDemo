@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4685587448752463238
+--- !u!1 &8502968256609079275
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4685587448752463355}
-  - component: {fileID: 4685587448752463236}
-  - component: {fileID: 4685587448752463237}
-  - component: {fileID: 4685587448752463354}
+  - component: {fileID: 8502968256609079190}
+  - component: {fileID: 7550213204889503836}
+  - component: {fileID: 8502968256609079273}
+  - component: {fileID: 8502968256609079272}
+  - component: {fileID: 8502968256609079191}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -19,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4685587448752463355
+--- !u!4 &8502968256609079190
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4685587448752463238}
+  m_GameObject: {fileID: 8502968256609079275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,13 +34,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4685587448752463236
+--- !u!114 &7550213204889503836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4685587448752463238}
+  m_GameObject: {fileID: 8502968256609079275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1099baa02b0754c9bf63e0802b69e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  ParentObject: {fileID: 8502968256609079275}
+  WeaponsList:
+  - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
+  rateOfFire: 0.5
+  bulletForce: 20
+  nextShot: 0
+--- !u!114 &8502968256609079273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502968256609079275}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be3fe375c4e9ba44983ac79bef34b525, type: 3}
@@ -49,13 +70,13 @@ MonoBehaviour:
   Ship: {fileID: 5936872198936489155, guid: 64954d2809efe484fb348fbf6385a216, type: 3}
   Currency: 0
   Relations_List: 
---- !u!114 &4685587448752463237
+--- !u!114 &8502968256609079272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4685587448752463238}
+  m_GameObject: {fileID: 8502968256609079275}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b644d2bcb63caa94b9295df5d7d4671b, type: 3}
@@ -64,17 +85,19 @@ MonoBehaviour:
   moveSpeed: 100
   rotateSpeed: 5
   maxSpeed: 100
-  rb: {fileID: 4685587448752463354}
+  rb: {fileID: 8502968256609079191}
   shipStats: {fileID: 0}
-  pd: {fileID: 4685587448752463236}
---- !u!50 &4685587448752463354
+  pd: {fileID: 8502968256609079273}
+  hAxis: 0
+  vAxis: 0
+--- !u!50 &8502968256609079191
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4685587448752463238}
+  m_GameObject: {fileID: 8502968256609079275}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
