@@ -9,6 +9,8 @@ public class PlayerController2D : MovementController2D
 
     #region Unity Methods
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +27,7 @@ public class PlayerController2D : MovementController2D
         hAxis = Input.GetAxis("Horizontal");
         vAxis = Input.GetAxis("Vertical");
     }
+
 
    #endregion
 }

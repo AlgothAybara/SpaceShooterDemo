@@ -8,7 +8,7 @@ public class MovementController2D : MonoBehaviour
     public float moveSpeed, rotateSpeed, maxSpeed;
     public Rigidbody2D rb;
     public ShipClass shipStats;
-    public PlayerData pd;
+    public CharacterData cd;
     public float hAxis, vAxis;
     #endregion
 
@@ -37,10 +37,10 @@ public class MovementController2D : MonoBehaviour
     #region Custom Methods
     void SetStats(){
         // Gets current ship from player data object
-        pd = GetComponent<PlayerData>();
+        cd = GetComponent<CharacterData>();
 
         // Gets the ship's stats and sets them as movement values
-        shipStats = pd.Ship.GetComponentInChildren<ShipClass>();
+        shipStats = cd.Ship.GetComponentInChildren<ShipClass>();
         moveSpeed = shipStats.accelerationRate;
         maxSpeed = shipStats.maxSpeed;
         rotateSpeed = shipStats.turnRate;
@@ -62,7 +62,8 @@ public class MovementController2D : MonoBehaviour
     void Movement(){
         //Allows velocity decay when acceleration is 0
         if(vAxis == 0){
-            rb.drag = shipStats.decelerationRate;
+            // float decelerationRate = shipStats.decelerationRate;
+            // rb.drag = decelerationRate;
         }
         else{
             rb.drag = 0;
