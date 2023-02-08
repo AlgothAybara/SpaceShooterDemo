@@ -33,14 +33,6 @@ public class Missile : simpleProjectile
 
     }
 
-    void Rotate() 
-    {
-        Vector3 vectorToTarget = Target.transform.position - transform.position;
-        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - rotationSpeed;
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-    }
-
     void Move() 
     {
         // checks if object is going faster than max speed

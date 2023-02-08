@@ -59,7 +59,7 @@ public class MovementController2D : MonoBehaviour
     // }
 
 
-    void Movement(){
+    public void Movement(){
         //Allows velocity decay when acceleration is 0
         if(vAxis == 0){
             // float decelerationRate = shipStats.decelerationRate;
@@ -89,7 +89,7 @@ public class MovementController2D : MonoBehaviour
     }
 
     // Rotates an object roughly 180 directions from velocity
-    void Rotate180(){
+    public void Rotate180(){
         // obtains smallest angle between velocity and 180 from it
         float angle = SignedAngleTo(-rb.velocity,transform.right,transform.forward);
 
@@ -105,7 +105,7 @@ public class MovementController2D : MonoBehaviour
     }
 
     // Rotates object in direction of input
-    void Rotation(){
+    public void Rotation(){
         // checks if down button is pressed
         if( Input.GetAxis("Vertical") < 0 && rb.velocity.sqrMagnitude > 0.01f){
             // rotates the gameobject 180 degrees from velocity
