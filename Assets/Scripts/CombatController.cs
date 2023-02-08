@@ -7,11 +7,12 @@ public class CombatController : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject ParentObject;
+    public GameObject Target;
     public List<GameObject> WeaponsList;
-
-    public float rateOfFire = 0.5f;
-    public float bulletForce = 20f;
     public float nextShot = 0;
+
+
+    
 
     public void SetFirePoint(){
         // Gets current ship from parent data object
@@ -29,9 +30,8 @@ public class CombatController : MonoBehaviour
         // instantiates bullet object
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<simpleProjectile>().parent = ParentObject.transform.GetChild(0);
-        // gets bullet rigidbody
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        // sets bullet direction and adds instant force
-        rb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
+        bullet.GetComponent<simpleProjectile>().Target = Target.transform.GetChild(0).GetComponent<PolygonCollider2D>();
+        bullet.GetComponent<simpleProjectile>().dir = dir;
+       
     }
 }
