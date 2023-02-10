@@ -17,18 +17,7 @@ public class Missile : simpleProjectile
     // UpdateFixed is necessary for tracking missle
     void FixedUpdate()
     {
-        // Vector2 direction = (Vector2)Target.transform.position - rbody.position;
-
-        // direction.Normalize();
-
-        // float RotateAmount = Vector3.Cross(direction, transform.up).z;
-
-        // rbody.angularVelocity = -RotateAmount * rotationSpeed;
-        Vector3 current = transform.right;
-        Vector3 to = Target.transform.position - transform.position;
-        transform.right = Vector3.RotateTowards(current, to, rotationSpeed * Time.deltaTime, 0.0f);
-
-        // Rotate();
+        FaceTarget();
         Move();
 
     }
@@ -52,6 +41,12 @@ public class Missile : simpleProjectile
         // constrains the object to be within certian x/y parameters
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10000f, 10000f), Mathf.Clamp(transform.position.y, -10000f, 10000f), 0);
 
+    }
+
+    void FaceTarget(){
+        Vector3 current = transform.right;
+        Vector3 to = Target.transform.position - transform.position;
+        transform.right = Vector3.RotateTowards(current, to, rotationSpeed * Time.deltaTime, 0.0f);
     }
 
     public override void OnTriggerEnter2D(Collider2D other)

@@ -62,8 +62,8 @@ public class MovementController2D : MonoBehaviour
     public void Movement(){
         //Allows velocity decay when acceleration is 0
         if(vAxis == 0){
-            // float decelerationRate = shipStats.decelerationRate;
-            // rb.drag = decelerationRate;
+            float decelerationRate = shipStats.decelerationRate;
+            rb.drag = decelerationRate;
         }
         else{
             rb.drag = 0;
@@ -91,14 +91,14 @@ public class MovementController2D : MonoBehaviour
     // Rotates an object roughly 180 directions from velocity
     public void Rotate180(){
         // obtains smallest angle between velocity and 180 from it
-        float angle = SignedAngleTo(-rb.velocity,transform.right,transform.forward);
+        float angle = SignedAngleTo(-rb.velocity);
 
         // checks if angle is within 2 degrees
         if (Mathf.Abs(angle) > 2){
             // returns the sign on the angle
             float sign = Signed(angle);
             // creates new vector 3 object with rotation
-            Vector3 newRotation = new Vector3( 0, 0, -sign * rotateSpeed ); 
+            Vector3 newRotation = new Vector3( 0, 0, -sign * rotateSpeed * Time.deltaTime); 
             // applies rotation object to gameobject's rotation
             transform.Rotate(Vector3.forward * newRotation.z); 
         } 
@@ -112,7 +112,7 @@ public class MovementController2D : MonoBehaviour
             Rotate180();
         } else {
             // obtain rotation from input and rotate speed
-            float rotation = -hAxis * rotateSpeed;
+            float rotation = -hAxis * rotateSpeed * Time.deltaTime;
             // applies new rotation to game object
             transform.Rotate(Vector3.forward * rotation);
         }
@@ -120,14 +120,16 @@ public class MovementController2D : MonoBehaviour
 
     // part of extension to Mathf library.
     // Finds the smallest angle between 2 vectors including its sign
-    float SignedAngleTo(Vector3 a, Vector3 b, Vector3 up) {
-     return Mathf.Atan2(
-       Vector3.Dot(up.normalized, Vector3.Cross(a, b)),
-       Vector3.Dot(a, b)) * Mathf.Rad2Deg;
+    public float SignedAngleTo(Vector3 to) {
+        Vector3 b = transform.right;
+        Vector3 up = transform.forward;
+        return Mathf.Atan2(
+        Vector3.Dot(up.normalized, Vector3.Cross(to, b)),
+        Vector3.Dot(to, b)) * Mathf.Rad2Deg;
    }
 
     // returns the sign of an object. Similar to another Mathf function, but can also return 0
-    float Signed(float num){
+    protected float Signed(float num){
         // returns 1 if num > 0
         if(num > 0){
            return 1;
@@ -143,5 +145,7 @@ public class MovementController2D : MonoBehaviour
            return 0;
        }
    }
+
+   public virtual void FaceTarget(GameObject target){}
    #endregion
 }

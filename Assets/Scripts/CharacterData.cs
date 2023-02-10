@@ -10,7 +10,7 @@ public class CharacterData : MonoBehaviour
     public List<int> Relations_List;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         SetShip();
         // RandomRotation();

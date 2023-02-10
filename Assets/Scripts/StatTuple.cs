@@ -31,6 +31,5 @@ public class StatTuple
     public void UpdateCurrent(int change) {
         currentValue += change;
         // currentValue = Mathf.Clamp(change, 0, maxValue);
-        Debug.Log(change);
     }
 }

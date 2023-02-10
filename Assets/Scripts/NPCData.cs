@@ -11,12 +11,12 @@ public class NPCData : CharacterData
     public int AI_index = 0;
     public GameObject target;
 
-    // public override void Start() {
-    //     base.Start();
-    //     currentAI = AI_list[AI_index];
-    // }
+    public override void Start() {
+        base.Start();
+        currentAI = AI_list[AI_index];
+    }
 
-    void UpdateFixed(){
+    void FixedUpdate(){
         currentAI.Execute(movement, combat, target);
     }
 

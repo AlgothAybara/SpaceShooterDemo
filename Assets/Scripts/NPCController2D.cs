@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCController2D : MovementController2D
 {
     #region Declarations
+    Vector3 newRotation = Vector3.zero;
     #endregion
 
     #region Unity Methods
@@ -25,18 +26,10 @@ public class NPCController2D : MovementController2D
 
     // Points GO towards the target object
     // Used in Hostile NPC AIs
-    Quaternion FaceTarget(GameObject target){
-        // gets difference between player and this GO's position
-        Vector3 dir = target.transform.position - transform.position;
-        dir.Normalize();
-        // Calculates the angle between 2 objects
-        float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        // creates an angle object
-        Quaternion target_dir = Quaternion.Euler(0,0,zAngle);
-        // begins turning towards player
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, target_dir, rotateSpeed*Time.deltaTime);
-
-        return target_dir;
+    public override void FaceTarget(GameObject target){
+        float angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x -transform.position.x ) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
     }
    
    #endregion

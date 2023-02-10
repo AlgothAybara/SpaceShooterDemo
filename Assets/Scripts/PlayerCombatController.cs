@@ -9,18 +9,16 @@ public class PlayerCombatController : CombatController
     {
         bulletPrefab = WeaponsList[0];
         // Checks if player presses or holds the shoot button
-        if((Input.GetButton("Jump")||Input.GetButtonDown("Jump"))&&Time.time> nextShot)
+        if((Input.GetButton("Jump")||Input.GetButtonDown("Jump")))
         {   
-            // sets the shot cooldown
-            nextShot = Time.time + bulletPrefab.GetComponent<simpleProjectile>().rateOfFire;
             // calls the shoot function
-            Shoot(firePoint);
+            Shoot();
         }
     }
-
+ 
     void Start(){
         nextShot = 0;
-        SetFirePoint();
+        SetFirePoint(gameObject);
         bulletPrefab = WeaponsList[0];
     }
 }

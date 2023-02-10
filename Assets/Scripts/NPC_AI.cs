@@ -8,7 +8,7 @@ public class NPC_AI : MonoBehaviour
     public float last_distance = 0;
     public GameObject target;
 
-    public void Execute(MovementController2D movement, CombatController combat, GameObject target){
+    public virtual void Execute(MovementController2D movement, CombatController combat, GameObject target){
         Move(movement, target);
         Attack(combat, target);
     }
