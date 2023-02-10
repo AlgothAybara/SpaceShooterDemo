@@ -3,18 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Planet
+  - NPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Starfield
+  - Planet
   - Projectile
-  - 
+  - NPC
   - 
   - 
   - 
@@ -38,6 +40,36 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Starfield Bottom
+    uniqueID: 3428390987
+    locked: 0
+  - name: Starfield Top
+    uniqueID: 940341729
+    locked: 0
+  - name: Planet Bottom
+    uniqueID: 2004853797
+    locked: 0
+  - name: Planet Top
+    uniqueID: 2328883517
+    locked: 0
+  - name: Object Top
+    uniqueID: 3514675919
+    locked: 0
+  - name: Projectile Top
+    uniqueID: 1998911967
+    locked: 0
+  - name: Player
+    uniqueID: 3402374955
+    locked: 0
+  - name: Projectile Player
+    uniqueID: 3576190045
+    locked: 0
+  - name: Object Bottom
+    uniqueID: 3547799317
+    locked: 0
+  - name: Projectile Bottom
+    uniqueID: 2125254831
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
