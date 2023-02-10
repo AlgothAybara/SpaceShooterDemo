@@ -150,6 +150,6 @@ MonoBehaviour:
   rb: {fileID: 7495566262049814484}
   dir: {x: 0, y: 0, z: 0}
   rateOfFire: 0.5
-  damage: -12
-  force: -200
+  damage: -1
+  force: -300
   time: 3
