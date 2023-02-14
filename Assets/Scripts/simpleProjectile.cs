@@ -28,7 +28,7 @@ public class simpleProjectile : MonoBehaviour
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         
-        if (other.transform != parent){
+        if (other.transform != parent && other.gameObject.tag != "Planet"){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
         }
