@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fighter_AI : NPC_AI
+public class AI_Fighter : AI_NPC
 {
     
     bool approach = false;

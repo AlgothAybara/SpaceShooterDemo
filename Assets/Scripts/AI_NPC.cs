@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_AI : MonoBehaviour
+public class AI_NPC : MonoBehaviour
 {
 
     public float last_distance = 0;

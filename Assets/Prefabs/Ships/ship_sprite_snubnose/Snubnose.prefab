@@ -216,7 +216,7 @@ MonoBehaviour:
   shipMass: 5
   turnRate: 150
   accelerationRate: 400
-  decelerationRate: 0.05
+  decelerationRate: 0.1
   armor:
     maxValue: 100
     currentValue: 0

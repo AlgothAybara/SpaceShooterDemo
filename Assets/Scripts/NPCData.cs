@@ -6,8 +6,8 @@ public class NPCData : CharacterData
 {
     public CombatController combat;
     public MovementController2D movement;
-    public List<NPC_AI> AI_list;
-    public NPC_AI currentAI;
+    public List<AI_NPC> AI_list;
+    public AI_NPC currentAI;
     public int AI_index = 0;
     public GameObject target;
 
@@ -20,6 +20,9 @@ public class NPCData : CharacterData
         currentAI.Execute(movement, combat, target);
     }
 
+    void Update(){
+        currentAI = AI_list[AI_index];
+    }
 
 
     
