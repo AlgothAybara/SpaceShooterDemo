@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipClass : MonoBehaviour
 {
@@ -9,19 +10,35 @@ public class ShipClass : MonoBehaviour
     public string shipName, shipClass;
     public int maxSpeed, shipMass;
     public float turnRate, accelerationRate, decelerationRate;
+    
 
     public StatTuple armor, shield, fuel;
 
-    void Awake () {
+    void Start () {
         armor.ResetCurrent();
         shield.ResetCurrent();
         fuel.ResetCurrent();
     }
 
+    void Update()
+    {
+        if (shield.currentValue > shield.maxValue) 
+        {
+            shield.GetMax();
+        }
+
+        if (armor.currentValue > armor.maxValue)
+        {
+            armor.GetMax();
+        }
+    }
+
+    
+
      public void ApplyDamage(int damage){
         // Debug.Log(other.gameObject.GetComponent<ShipClass>().shield.currentValue);
 
-        if(shield.GetCurrnet() > 0)
+        if(shield.GetCurrent() > 0)
         {
             shield.UpdateCurrent(damage);
         } 
@@ -30,7 +47,7 @@ public class ShipClass : MonoBehaviour
             armor.UpdateCurrent(damage);
         }
 
-        if(armor.GetCurrnet() < 0){
+        if(armor.GetCurrent() < 0){
             Destroy(transform.parent.gameObject);
             Destroy(gameObject);
         }

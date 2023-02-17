@@ -7,16 +7,16 @@ public class StatTuple
 {
 
     [SerializeField]
-    private int maxValue, currentValue;
+    public float currentValue, maxValue;
 
     [SerializeField]
     private float regenRate;    
 
-    public int GetMax(){
+    public float GetMax(){
         return maxValue;
     }
 
-    public int GetCurrnet(){
+    public float GetCurrent(){
         return currentValue;
     }
 
@@ -32,4 +32,7 @@ public class StatTuple
         currentValue += change;
         // currentValue = Mathf.Clamp(change, 0, maxValue);
     }
+
+    
+
 }
