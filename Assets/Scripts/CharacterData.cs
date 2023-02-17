@@ -6,6 +6,7 @@ public class CharacterData : MonoBehaviour
 {
     public string Name;
     public GameObject Ship;
+    public GameObject currentShip;
     public int Currency;
     public List<int> Relations_List;
 
@@ -16,17 +17,9 @@ public class CharacterData : MonoBehaviour
         // RandomRotation();
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SetShip(){
         // Instantiates player_data.Ship as a gameObject in the scene
-        GameObject currentShip = Instantiate(this.Ship) as GameObject;
+        currentShip = Instantiate(this.Ship) as GameObject;
         // Sets the PlayerOnject as the parent of currentShip
         currentShip.transform.parent = this.transform;
     }

@@ -65,9 +65,15 @@ public class AI_Landing : AI_NPC
                 movement.vAxis = 1;
             }
         }
-       
-
     }
+
+    virtual public void OnTriggerEnter2D(Collider2D other){
+        if (other.gameObject.tag == "Planet"){
+            Debug.Log("Touching Planet");
+            approach = false;
+        }
+    }
+}
 
     // public override void Execute(MovementController2D movement, CombatController combat, GameObject target){
     //     Debug.Log("Execute");
@@ -120,11 +126,6 @@ public class AI_Landing : AI_NPC
     //     }
     // }
 
-    virtual public void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.tag == "Planet"){
-            Debug.Log("Touching Planet");
-            approach = false;
-        }
-    }
-}
+    
+
     
