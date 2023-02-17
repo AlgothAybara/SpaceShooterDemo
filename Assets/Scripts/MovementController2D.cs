@@ -10,6 +10,8 @@ public class MovementController2D : MonoBehaviour
     public ShipClass shipStats;
     public CharacterData cd;
     public float hAxis, vAxis;
+
+    public float cruise;
     #endregion
 
     #region Unity Methods
@@ -67,22 +69,25 @@ public class MovementController2D : MonoBehaviour
         }
         else{
             rb.drag = 0;
-        }
+        
+            float angle = SignedAngleTo(-rb.velocity);
+            // Debug.Log("Angle:" + Mathf.Abs(angle));
+            // checks if object is going faster than max speed
+            if(rb.velocity.magnitude > maxSpeed && Mathf.Abs(angle) > 90)
+            {
+                // sets object velocity to max speed
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
+            else {
+                // sets speed and direction of movement
+                Vector2 movement = transform.right * Mathf.Clamp01(vAxis) * moveSpeed;
+                // adds movement variable to velocity
+                rb.AddForce(movement);
 
-        // checks if object is going faster than max speed
-        if(rb.velocity.magnitude > maxSpeed)
-        {
-            // sets object velocity to max speed
-            rb.velocity = rb.velocity.normalized * maxSpeed;
-        }
-        else {
-            // sets speed and direction of movement
-            Vector2 movement = transform.right * Mathf.Clamp01(vAxis) * moveSpeed;
-            // adds movement variable to velocity
-            rb.AddForce(movement);
+            }
 
         }
-
+        
         // constrains the object to be within certian x/y parameters
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10000f, 10000f), Mathf.Clamp(transform.position.y, -10000f, 10000f), 0);
 

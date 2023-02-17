@@ -5,127 +5,88 @@ using UnityEngine;
 public class AI_Landing : AI_NPC
 {
     public bool approach = true;
+    public bool stop = false;
 
     public override void Execute(MovementController2D movement, CombatController combat, GameObject target){
         combat.Target = target;
+        movement.cruise = 0.5f;
 
         float speed = movement.rb.velocity.magnitude;
+        // Debug.Log("Speed" + speed);
         // get the directional relationship between target and npc
         Vector3 direction = (target.transform.position - transform.position).normalized;
         float dot = Vector3.Dot(direction, transform.right);
         // get distance from target to npc
         float distance = Vector3.Distance (target.transform.position, transform.position);
         // get current boolean values for statem
-        bool dir = (dot == 1);
-        bool negDir = (dot < -0.5);
-        bool dist = (distance < 50);
-        bool ang = (Mathf.Abs(movement.SignedAngleTo(target.transform.position)) > 2);
-        bool spd = (speed > 10);
+        bool dir = (dot > 0.95);
+        bool ang = (Mathf.Abs(movement.SignedAngleTo(target.transform.position)) < 2);
+        bool spd = (speed > 1);
 
         // Debug.Log(dir + " " + dist + " " + speed);
-
-        if (!approach) {
-            // turn ship 180 degrees
-            if(!dist && ang && spd) {
-                // Debug.Log("180");
-                movement.vAxis = 0;
-                movement.Rotate180();
-            }
-            else if (!(Mathf.Abs(movement.SignedAngleTo(target.transform.position)) > 2)){
-                approach = true;
-                // Debug.Log("Now Approaching");
-            }
-            // if not facing the target and under 100 units away
-            else if (negDir && dist) {
-                // Debug.Log("Flying Away");
-                movement.vAxis = 1;
-                approach = false;
-            } 
-            
+        if(stop) {
+            Debug.Log("Stop Function");
+            StopShip(movement, spd);
         }
-        else if (approach){
-
-            if(!dir && !dist){
-                // Debug.Log("Not facing, OOR");
+        else if (approach)
+        {
+            // if not facing the target and not moving
+            if(!dir && !spd){
+                Debug.Log("Not facing, Not Moving");
                 movement.vAxis = 0;
                 movement.FaceTarget(target);
             } 
-            // if facing the target and over 100 meters away
-            else if (dir && !dist) {
-                // Debug.Log("Facing, OOR");
-                movement.vAxis = 1;
+            // if not facing the target and moving
+            // The second half of below OR needs to be a function of current speed and RotateSpeed
+            else if ((!dir && spd) || (distance < speed * 1.65f)) {
+                Debug.Log("Not facing, Moving");
+                stop = true;
             } 
-            // if facing the target and under 100 meters away
-            else if (!dir && dist){
-                // Debug.Log("Correcting course");
+            // if facing the target and moving
+            else if (dir && ang && !spd){
+                Debug.Log("Facing, Not Moving");
+                movement.FaceTarget(target);
                 movement.vAxis = 1;
-                // movement.FaceTarget(target);
             }
-            else if (dir && dist) {
+            else if (dir && spd) {
+                Debug.Log("Facing, Moving");
                 movement.vAxis = 1;
+                movement.FaceTarget(target);
+            } else {
+                Debug.Log("You should not be getting this error.");
+                Debug.Log("Dot" + dot);
+                Debug.Log(Mathf.Abs(movement.SignedAngleTo(target.transform.position)));
+                movement.FaceTarget(target);
+                movement.vAxis = 0;
             }
         }
     }
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.tag == "Planet"){
-            Debug.Log("Touching Planet");
+            // Debug.Log("Touching Planet");
             approach = false;
+            stop = true;
+        }
+    }
+
+    void StopShip(MovementController2D movement, bool spd){
+        bool Vang = (Mathf.Abs(movement.SignedAngleTo(-movement.rb.velocity)) > 5);
+        if(spd && Vang){
+            // Debug.Log("180");
+            movement.vAxis = 0;
+            movement.Rotate180();
+        }
+        else if(spd) {
+            // Debug.Log("Stopping");
+            movement.vAxis = 1;
+        } 
+        else if (!spd){
+            // Debug.Log("Done Stopping");
+            stop = false;
+            movement.vAxis = 0;
+        } else {
+            Debug.Log("Should not be getting this error");
         }
     }
 }
-
-    // public override void Execute(MovementController2D movement, CombatController combat, GameObject target){
-    //     Debug.Log("Execute");
-    //     float speed = movement.rb.velocity.magnitude;
-    //     // get the directional relationship between target and npc
-    //     Vector3 direction = (target.transform.position - transform.position).normalized;
-    //     float dot = Vector3.Dot(direction, transform.right);
-    //     // get distance from target to npc
-    //     float distance = Vector3.Distance (target.transform.position, transform.position);
-        
-    //     // get current boolean values for statem
-    //     bool dir = (dot > 0.8);
-    //     bool ang = (Mathf.Abs(movement.SignedAngleTo(target.transform.position)) > 10);
-    //     bool spd = (speed > 2);
-    //     bool Vang = (Mathf.Abs(movement.SignedAngleTo(-movement.rb.velocity)) > 25);
-
-    //     if(approach){
-    //         if(!dir && !Vang){
-    //             Debug.Log("Not facing, OOR");
-    //             movement.vAxis = 0;
-    //             movement.FaceTarget(target);
-    //         } 
-    //         else if(!dir && Vang) {
-    //             StopShip(movement, spd, Vang);
-    //         }
-    //         // if facing the target and over 100 meters away
-    //         else if (dir && !Vang) {
-    //             Debug.Log("Facing, OOR");
-    //             movement.vAxis = 1;
-    //         } 
-    //     } else {
-    //         if(spd || Vang){
-    //             StopShip(movement, spd, Vang);
-    //         }
-    //         else{
-    //             Debug.Log("Stopped");
-    //         }
-    //     }
-    // }
-
-    // void StopShip(MovementController2D movement, bool spd, bool Vang){
-    //     if(spd && Vang){
-    //         Debug.Log("180");
-    //         movement.vAxis = 0;
-    //         movement.Rotate180();
-    //     }
-    //     else if(spd) {
-    //         Debug.Log("Stopping");
-    //         movement.vAxis = 1;
-    //     }
-    // }
-
-    
-
-    
