@@ -95,13 +95,20 @@ public class MovementController2D : MonoBehaviour
 
     // Rotates an object roughly 180 directions from velocity
     public void Rotate180(){
-        // obtains smallest angle between velocity and 180 from it
         float angle = SignedAngleTo(-rb.velocity);
+        RotateTo(angle);
+    }
 
+    // Rotates an object roughly 180 degrees from velocity
+    public void RotateTo(float angle){
+        // obtains smallest angle between velocity and 180 from it
+        
         // checks if angle is within 2 degrees
         if (Mathf.Abs(angle) > 2){
             // returns the sign on the angle
             float sign = Signed(angle);
+
+            // Debug.Log(angle);
             // creates new vector 3 object with rotation
             Vector3 newRotation = new Vector3( 0, 0, -sign * rotateSpeed * Time.deltaTime); 
             // applies rotation object to gameobject's rotation
