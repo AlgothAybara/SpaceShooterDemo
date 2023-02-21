@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Missile : simpleProjectile
+public class Missile : Projectile
 {
     public float rotationSpeed; //Turn rotation
     public float maxSpeed;

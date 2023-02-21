@@ -29,7 +29,7 @@ public class CombatController : MonoBehaviour
         if(Time.time> nextShot)
         {   
             // sets the shot cooldown
-            nextShot = Time.time + bulletPrefab.GetComponent<simpleProjectile>().rateOfFire;
+            nextShot = Time.time + bulletPrefab.GetComponent<Projectile>().rateOfFire;
             // Creates a variation float
             float rand = Random.Range(-.1f, .1f);
             // creates variation Vector3
@@ -38,9 +38,9 @@ public class CombatController : MonoBehaviour
             Vector3 dir = (randVariation + -firePoint.right).normalized;
             // instantiates bullet object
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<simpleProjectile>().parent = ParentObject.transform.GetChild(0);
-            bullet.GetComponent<simpleProjectile>().Target = Target.transform.GetChild(0).GetComponent<PolygonCollider2D>();
-            bullet.GetComponent<simpleProjectile>().dir = dir;
+            bullet.GetComponent<Projectile>().parent = ParentObject.transform.GetChild(0);
+            bullet.GetComponent<Projectile>().Target = Target.transform.GetChild(0).GetComponent<PolygonCollider2D>();
+            bullet.GetComponent<Projectile>().dir = dir;
         }
     }
 }
