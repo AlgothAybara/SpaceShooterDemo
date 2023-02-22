@@ -6,6 +6,7 @@ public class PlayerData : CharacterData
 {
     public Image shieldHealth; //UI image of shield health bar
     public Image armorHealth; //UI image of armor health bar
+    public Image shipIntegrity; //UI image of ship's structural integrity.
     float lerpSpeed; //Math function to smooth out UI Image with health
     private ShipClass ship;
 
@@ -27,6 +28,10 @@ public class PlayerData : CharacterData
         Color armorHealthColor = Color.Lerp(Color.red, Color.green, (ship.armor.currentValue / ship.armor.maxValue));
         armorHealth.color = armorHealthColor;
 
+        //Integrity will go from yellow to red
+        Color shipIntegrityColor = Color.Lerp(Color.red, Color.yellow, (ship.integrity.currentValue / ship.integrity.maxValue));
+        shipIntegrity.color = shipIntegrityColor;
+
     }
 
     void HealthBarFiller()
@@ -34,11 +39,12 @@ public class PlayerData : CharacterData
         //This will control the UI image to match health bar size with health stat
         shieldHealth.fillAmount = Mathf.Lerp(shieldHealth.fillAmount, ship.shield.currentValue / ship.shield.maxValue, lerpSpeed);
         armorHealth.fillAmount = Mathf.Lerp(armorHealth.fillAmount, ship.armor.currentValue / ship.armor.maxValue, lerpSpeed);
+        shipIntegrity.fillAmount = Mathf.Lerp(shipIntegrity.fillAmount, ship.integrity.currentValue / ship.integrity.maxValue, lerpSpeed);
     }
     private void Update()
     {
         //Lerp speed how fast the bar will decrease when damage is taken to ship
-        lerpSpeed = 5f * Time.deltaTime;
+        lerpSpeed = 3f * Time.deltaTime;
         HealthBarFiller();
         ColorChanger();
     }

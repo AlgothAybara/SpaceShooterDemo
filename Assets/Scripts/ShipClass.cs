@@ -12,12 +12,13 @@ public class ShipClass : MonoBehaviour
     public float turnRate, accelerationRate, decelerationRate;
     
 
-    public StatTuple armor, shield, fuel;
+    public StatTuple armor, shield, fuel, integrity;
 
     void Start () {
         armor.ResetCurrent();
         shield.ResetCurrent();
         fuel.ResetCurrent();
+        integrity.ResetCurrent();
     }
 
     void Update()
@@ -30,6 +31,11 @@ public class ShipClass : MonoBehaviour
         if (armor.currentValue > armor.maxValue)
         {
             armor.GetMax();
+        }
+
+        if (integrity.currentValue > integrity.maxValue)
+        {
+            integrity.GetMax();
         }
     }
 
@@ -45,6 +51,7 @@ public class ShipClass : MonoBehaviour
         else 
         {
             armor.UpdateCurrent(damage);
+            integrity.UpdateCurrent(damage - 2);
         }
 
         if(armor.GetCurrent() < 0){
