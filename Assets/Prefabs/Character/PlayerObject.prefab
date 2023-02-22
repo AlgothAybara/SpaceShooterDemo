@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &60712453856013955
+--- !u!1 &3141890635837529085
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 60712453856014078}
-  - component: {fileID: 2166393992357079348}
-  - component: {fileID: 60712453856013953}
-  - component: {fileID: 60712453856013952}
-  - component: {fileID: 60712453856014079}
+  - component: {fileID: 3141890635837528960}
+  - component: {fileID: 3845263325500054602}
+  - component: {fileID: 3141890635837529087}
+  - component: {fileID: 3141890635837529086}
+  - component: {fileID: 3141890635837528961}
+  - component: {fileID: 3141890635837528971}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -20,46 +21,47 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &60712453856014078
+--- !u!4 &3141890635837528960
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60712453856013955}
+  m_GameObject: {fileID: 3141890635837529085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2166393992357079348
+--- !u!114 &3845263325500054602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60712453856013955}
+  m_GameObject: {fileID: 3141890635837529085}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd1099baa02b0754c9bf63e0802b69e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  ParentObject: {fileID: 60712453856013955}
+  firePoint: {fileID: 501535275229016329, guid: 29b27522f75d31d4c956555fb4a30f2c, type: 3}
+  bulletPrefab: {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
+  ParentObject: {fileID: 3141890635837529085}
   Target: {fileID: 0}
   WeaponsList:
   - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
   nextShot: 0
---- !u!114 &60712453856013953
+--- !u!114 &3141890635837529087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60712453856013955}
+  m_GameObject: {fileID: 3141890635837529085}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be3fe375c4e9ba44983ac79bef34b525, type: 3}
@@ -67,15 +69,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Ship: {fileID: 5936872198936489155, guid: 64954d2809efe484fb348fbf6385a216, type: 3}
+  currentShip: {fileID: 0}
   Currency: 0
   Relations_List: 
---- !u!114 &60712453856013952
+  shieldHealth: {fileID: 0}
+  armorHealth: {fileID: 0}
+  shipIntegrity: {fileID: 0}
+--- !u!114 &3141890635837529086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60712453856013955}
+  m_GameObject: {fileID: 3141890635837529085}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b644d2bcb63caa94b9295df5d7d4671b, type: 3}
@@ -84,19 +90,20 @@ MonoBehaviour:
   moveSpeed: 100
   rotateSpeed: 5
   maxSpeed: 100
-  rb: {fileID: 60712453856014079}
+  rb: {fileID: 3141890635837528961}
   shipStats: {fileID: 0}
   cd: {fileID: 0}
   hAxis: 0
   vAxis: 0
---- !u!50 &60712453856014079
+  cruise: 0
+--- !u!50 &3141890635837528961
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60712453856013955}
+  m_GameObject: {fileID: 3141890635837529085}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -110,3 +117,14 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &3141890635837528971
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141890635837529085}
+  m_Enabled: 1
+  m_SortingLayerID: -701180787
+  m_SortingLayer: -4
+  m_SortingOrder: 0
