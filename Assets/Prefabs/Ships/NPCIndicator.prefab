@@ -130,4 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 7574395453819287678, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
-  HideDistance: 10
+  HideDistanceMin: 5
+  HideDistanceMax: 100
