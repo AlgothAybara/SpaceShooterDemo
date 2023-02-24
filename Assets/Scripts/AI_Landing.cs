@@ -6,8 +6,9 @@ public class AI_Landing : AI_NPC
 {
     public bool approach = true;
     public bool stop = false;
+    public bool feedback = false;
 
-    public override void Execute(MovementController2D movement, CombatController combat, GameObject target){
+    public override bool Execute(MovementController2D movement, CombatController combat, GameObject target){
         combat.Target = target;
         movement.cruise = 0.5f;
 
@@ -60,6 +61,8 @@ public class AI_Landing : AI_NPC
                 movement.vAxis = 0;
             }
         }
+
+        return feedback;
     }
 
     virtual public void OnTriggerEnter2D(Collider2D other){
@@ -81,11 +84,17 @@ public class AI_Landing : AI_NPC
             // Debug.Log("Stopping");
             movement.vAxis = 1;
         } 
-        else if (!spd){
+        else if (!spd && approach){
             // Debug.Log("Done Stopping");
             stop = false;
             movement.vAxis = 0;
-        } else {
+        } else if (!spd && !approach){
+            Debug.Log("Landed");
+            stop = false;
+            movement.vAxis = 0;
+            feedback = true;
+        } 
+        else {
             Debug.Log("Should not be getting this error");
         }
     }

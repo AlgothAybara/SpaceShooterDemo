@@ -6,7 +6,11 @@ public class AI_Fighter : AI_NPC
 {
     
     bool approach = false;
-    public override void Execute(MovementController2D movement, CombatController combat, GameObject target){
+    public override bool Execute(MovementController2D movement, CombatController combat, GameObject target){
+        if (target == null) {
+            Debug.Log("Target not found");
+            return true;
+        }
         combat.Target = target;
 
         float speed = movement.rb.velocity.magnitude;
@@ -72,8 +76,7 @@ public class AI_Fighter : AI_NPC
                 combat.Shoot();
             }
         }
-       
-
+       return false;
     }
 
     // public bool approach = false;

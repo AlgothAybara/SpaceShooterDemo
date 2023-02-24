@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7574395453819287552}
   - component: {fileID: 7574395453819287578}
   - component: {fileID: 7574395453819287580}
+  - component: {fileID: 6904216841367320621}
   m_Layer: 0
   m_Name: NPCObject
   m_TagString: Untagged
@@ -76,11 +77,14 @@ MonoBehaviour:
   Relations_List: 
   combat: {fileID: 1682477954801270698}
   movement: {fileID: 1954695799334983002}
-  AI_list:
-  - {fileID: 0}
-  currentAI: {fileID: 0}
   AI_index: 0
   target: {fileID: 0}
+  AI_list:
+  - {fileID: 7574395453819287578}
+  - {fileID: 6904216841367320621}
+  - {fileID: 7574395453819287580}
+  currentAI: {fileID: 0}
+  aggresive: {fileID: 7574395453819287552}
 --- !u!114 &1954695799334983002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26b1bf1f87fa29428b89506ae1b6536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  last_distance: 0
   target: {fileID: 0}
 --- !u!114 &7574395453819287578
 MonoBehaviour:
@@ -149,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd4e38cc9da0f5499042bd43d296f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  last_distance: 0
   target: {fileID: 0}
   approach: 1
   stop: 0
+  feedback: 0
 --- !u!114 &7574395453819287580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +165,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 7574395453819287555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee7b890a2e4cea47bad3fcbcf4ceffb, type: 3}
+  m_Script: {fileID: 11500000, guid: d9baa1564959ece449ec1e1aa378979f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  last_distance: 0
   target: {fileID: 0}
   stop: 0
+--- !u!114 &6904216841367320621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574395453819287555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d3c7c26bc201c48ad238fc68afeb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  wait: 0

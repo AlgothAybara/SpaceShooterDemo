@@ -6,7 +6,7 @@ public class AI_Leaving : AI_NPC
 {
     public bool stop = false;
 
-    public override void Execute(MovementController2D movement, CombatController combat, GameObject target){
+    public override bool Execute(MovementController2D movement, CombatController combat, GameObject target){
         combat.Target = target;
         movement.cruise = 0.5f;
 
@@ -43,6 +43,7 @@ public class AI_Leaving : AI_NPC
             // if not moving and facing while at distance
             else if (dir){
                 Destroy(gameObject);
+                return true;
             }
             else {
                 Debug.Log("You should not be getting this error.");
@@ -57,6 +58,7 @@ public class AI_Leaving : AI_NPC
         {
             movement.vAxis = 1;
         }
+        return false;
     }
 
     void StopShip(MovementController2D movement, bool spd){
