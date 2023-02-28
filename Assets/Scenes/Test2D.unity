@@ -147,9 +147,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 646500640558436701, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 381845482}
+    - target: {fileID: 646500640558436701, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
       propertyPath: currentAI
       value: 
       objectReference: {fileID: 936933397}
+    - target: {fileID: 1682477954801270698, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 381845482}
+    - target: {fileID: 1682477954801270698, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 501535275229016329, guid: 29b27522f75d31d4c956555fb4a30f2c, type: 3}
+    - target: {fileID: 1682477954801270698, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
     - target: {fileID: 7574395453819287552, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
       propertyPath: target
       value: 
@@ -158,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCObject
       objectReference: {fileID: 0}
+    - target: {fileID: 7574395453819287578, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2135343571}
     - target: {fileID: 7574395453819287678, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -233,8 +253,12 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7826962816588866360, guid: 0dc4d2840a94491489b78c6a8f3e21c9, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 936933405}
+    - target: {fileID: 7826962816588866360, guid: 0dc4d2840a94491489b78c6a8f3e21c9, type: 3}
       propertyPath: HideDistanceMax
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 7826962816588866360, guid: 0dc4d2840a94491489b78c6a8f3e21c9, type: 3}
       propertyPath: HideDistanceMin
@@ -366,6 +390,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26b1bf1f87fa29428b89506ae1b6536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &936933405 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7574395453819287678, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+  m_PrefabInstance: {fileID: 176053170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &994426381
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 2135343574}
     - target: {fileID: 3264944658357313238, guid: 2728540ac6e3f8144aec158d8f2dfa9d, type: 3}
       propertyPath: HideDistanceMax
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3264944658357313238, guid: 2728540ac6e3f8144aec158d8f2dfa9d, type: 3}
       propertyPath: HideDistanceMin

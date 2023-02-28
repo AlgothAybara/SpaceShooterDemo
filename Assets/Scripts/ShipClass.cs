@@ -48,10 +48,13 @@ public class ShipClass : MonoBehaviour
         {
             shield.UpdateCurrent(damage);
         } 
-        else 
+        else
         {
             armor.UpdateCurrent(damage);
-            integrity.UpdateCurrent(damage - 2);
+            if (armor.currentValue <= 75)
+            {
+                integrity.UpdateCurrent(damage);
+            }  
         }
 
         if(armor.GetCurrent() < 0){

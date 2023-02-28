@@ -26,8 +26,6 @@ public class targetIndicator : MonoBehaviour
         {
             SetChildrenActive(false);
         }
-        
-        //If distance is out of scope, don't have arrow appear
         else
         {
             SetChildrenActive(true); 
