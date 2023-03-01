@@ -39,11 +39,37 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
+  - name: Starfield Top
+    uniqueID: 3789390279
+    locked: 0
+  - name: Starfield Bottom
+    uniqueID: 1976415661
+    locked: 0
+  - name: Planet Bottom
+    uniqueID: 443807683
+    locked: 0
+  - name: Planet Top
+    uniqueID: 3473904879
+    locked: 0
+  - name: Object Top
+    uniqueID: 4022874445
+    locked: 0
+  - name: Projectile Top
+    uniqueID: 917613047
+    locked: 0
+  - name: Player
+    uniqueID: 3352239271
+    locked: 0
+  - name: Player Projectile
+    uniqueID: 2645762897
+    locked: 0
+  - name: Object Bottom
+    uniqueID: 390508855
+    locked: 0
+  - name: Projectile Bottom
+    uniqueID: 3371266255
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
