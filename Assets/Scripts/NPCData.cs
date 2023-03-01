@@ -25,7 +25,7 @@ public class NPCData : CharacterData
             currentAI = AI_list[AI_index];
             AI_index += 1;
         }
-        Debug.Log(this.currentAI);
+        // Debug.Log(this.currentAI);
 
     }
 

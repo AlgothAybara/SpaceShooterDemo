@@ -24,7 +24,7 @@ public class AI_Leaving : AI_NPC
         bool dist = (distance > 50);
 
         if(stop) {
-            Debug.Log("Stop Function");
+            // Debug.Log("Stop Function");
             StopShip(movement, spd);
         }
         else if (dist)
