@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class SystemManager : MonoBehaviour
 {
     public List<GameObject> spawnableShips;
     public List<GameObject> spawnedNPCs;
