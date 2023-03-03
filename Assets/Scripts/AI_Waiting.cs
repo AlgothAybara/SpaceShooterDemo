@@ -8,7 +8,7 @@ public class AI_Waiting : AI_NPC
 
     public override bool Execute(MovementController2D movement, CombatController combat, GameObject target){
         if (wait == 0) {
-            wait = Time.time + Random.Range(5,10);
+            wait = Time.time + Random.Range(10,20);
         } else if (Time.time > wait){
             return true;
         }

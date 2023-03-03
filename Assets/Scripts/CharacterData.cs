@@ -19,8 +19,8 @@ public class CharacterData : MonoBehaviour
 
     void SetShip(){
         // Instantiates player_data.Ship as a gameObject in the scene
-        currentShip = Instantiate(this.Ship) as GameObject;
+        currentShip = Instantiate(this.Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
         // Sets the PlayerOnject as the parent of currentShip
-        currentShip.transform.parent = this.transform;
+        // currentShip.transform.parent = this.transform;
     }
 }
