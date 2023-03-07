@@ -10,11 +10,23 @@ public class targetIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //If target doesn't exist, don't have the arrow appear
-        if (Target == null)
-        {
-            SetChildrenActive(false);
+        try {
+            Target = this.GetComponentInParent<PlayerCombatController>().Target.transform;
+            Debug.Log(Target.name);
+            if (Target.name == "EmptyTarget"){
+                SetChildrenActive(false);
+                return;
+            }
+            else {
+                SetChildrenActive(true);
+            }
         }
+        //If target doesn't exist, don't have the arrow appear
+        catch {
+            SetChildrenActive(false);
+            return;
+        }
+      
         var direction = Target.position - transform.position;
         
         //Have arrow visible while greater than min distance and less than max distance
@@ -22,10 +34,10 @@ public class targetIndicator : MonoBehaviour
         {
             SetChildrenActive(false);
         }
-        else if (direction.magnitude > HideDistanceMax)
-        {
-            SetChildrenActive(false);
-        }
+        // else if (direction.magnitude > HideDistanceMax)
+        // {
+        //     SetChildrenActive(false);
+        // }
         else
         {
             SetChildrenActive(true); 
