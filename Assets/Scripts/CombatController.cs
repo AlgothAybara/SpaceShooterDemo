@@ -19,7 +19,10 @@ public class CombatController : MonoBehaviour
 
     public void SetFirePoint(GameObject caller){
         // Gets current ship from parent data object
-        firePoint = ParentObject.transform.GetChild(0).transform.GetChild(0).transform;
+        // Debug.Log("fish");
+        Debug.Log(transform.GetChild(0).transform);
+        Debug.Log(transform.GetChild(0).transform.GetChild(0).transform);
+        firePoint = transform.GetChild(0).transform.GetChild(0).transform;
         Debug.Log(caller);
 
     }
@@ -39,8 +42,9 @@ public class CombatController : MonoBehaviour
             // instantiates bullet object
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.GetComponent<Projectile>().parent = ParentObject.transform.GetChild(0);
-            bullet.GetComponent<Projectile>().Target = Target.transform.GetChild(0).GetComponent<PolygonCollider2D>();
+            bullet.GetComponent<Projectile>().Target = Target;
             bullet.GetComponent<Projectile>().dir = dir;
+            Debug.Log(dir + " " + firePoint.rotation);
         }
     }
 }

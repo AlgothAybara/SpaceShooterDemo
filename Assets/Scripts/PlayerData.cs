@@ -14,7 +14,7 @@ public class PlayerData : CharacterData
     {
         base.Start();
         ship = currentShip.GetComponent<ShipClass>();
-        
+        currentShip.transform.SetAsFirstSibling();        
     }
 
     //Color changes as health goes down for each respective health bar
@@ -43,6 +43,7 @@ public class PlayerData : CharacterData
     }
     private void Update()
     {
+        currentShip.transform.SetAsFirstSibling();
         //Lerp speed how fast the bar will decrease when damage is taken to ship
         lerpSpeed = 3f * Time.deltaTime;
         HealthBarFiller();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCombatController : CombatController
 {
-    private int targetIndex = 0;
+    private int targetIndex = -1;
     // Update is called once per frame
     void Update()
     {
@@ -12,13 +12,12 @@ public class PlayerCombatController : CombatController
         // Checks if player presses or holds the shoot button
         if (Input.GetKeyDown(KeyCode.Tab)){
             var NPCs = this.GetComponentInParent<SystemManager>().spawnedNPCs;
+            targetIndex += 1;
+
             if (NPCs.Count <= targetIndex || Target == null){
                 targetIndex = 0;
             }
-
             Target = NPCs[targetIndex];
-            targetIndex += 1;
-            Debug.Log(Target + " " + targetIndex);
         } 
         if((Input.GetButton("Jump")||Input.GetButtonDown("Jump")))
         {   

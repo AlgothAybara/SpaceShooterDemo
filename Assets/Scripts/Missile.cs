@@ -12,11 +12,17 @@ public class Missile : Projectile
 
     public override void Start()
     {
+        if (Target == null){
+            Target = GameObject.Find("EmptyTarget");
+        }
         Destroy(gameObject, time);
     }
     // UpdateFixed is necessary for tracking missle
     void FixedUpdate()
     {
+        if (Target == null){
+            Target = GameObject.Find("EmptyTarget");
+        }
         FaceTarget();
         Move();
 
@@ -44,14 +50,21 @@ public class Missile : Projectile
     }
 
     void FaceTarget(){
-        Vector3 current = transform.right;
-        Vector3 to = Target.transform.position - transform.position;
-        transform.right = Vector3.RotateTowards(current, to, rotationSpeed * Time.deltaTime, 0.0f);
+        if(Target.name != "EmptyTarget" || Target == null){
+            Vector3 current = transform.right;
+            Vector3 to = Target.transform.position - transform.position;
+            transform.right = Vector3.RotateTowards(current, to, rotationSpeed * Time.deltaTime, 0.0f);
+        }
     }
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.Equals(Target)){
+        if (other.Equals(Target.transform.GetChild(0).GetComponent<PolygonCollider2D>())){
+            Destroy(gameObject);
+            other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
+            Target = null;
+        } 
+        else if (Target.name == "EmptyTarget" || Target == null){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;

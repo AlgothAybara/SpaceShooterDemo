@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public Transform parent;
     public string projectileName; //Name of projectile
-    public PolygonCollider2D Target;
+    public GameObject Target;
     public Rigidbody2D rb;
     public Vector3 dir;
 
@@ -21,6 +21,9 @@ public class Projectile : MonoBehaviour
     virtual public void Start() {
          // gets bullet rigidbody
         // sets bullet direction and adds instant force
+        if (Target == null){
+            Target = GameObject.Find("EmptyTarget");
+        }
         rb.AddForce(dir * force, ForceMode2D.Impulse);
         gameObject.tag = "Projectile";
         Destroy(gameObject, time);
@@ -28,7 +31,7 @@ public class Projectile : MonoBehaviour
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         
-        if (other.transform != parent && other.gameObject.tag != "Planet"){
+        if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile"){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
         }
