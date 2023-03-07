@@ -20,10 +20,10 @@ public class CombatController : MonoBehaviour
     public void SetFirePoint(GameObject caller){
         // Gets current ship from parent data object
         // Debug.Log("fish");
-        Debug.Log(transform.GetChild(0).transform);
-        Debug.Log(transform.GetChild(0).transform.GetChild(0).transform);
+        // Debug.Log(transform.GetChild(0).transform);
+        // Debug.Log(transform.GetChild(0).transform.GetChild(0).transform);
         firePoint = transform.GetChild(0).transform.GetChild(0).transform;
-        Debug.Log(caller);
+        // Debug.Log(caller);
 
     }
 
@@ -44,7 +44,6 @@ public class CombatController : MonoBehaviour
             bullet.GetComponent<Projectile>().parent = ParentObject.transform.GetChild(0);
             bullet.GetComponent<Projectile>().Target = Target;
             bullet.GetComponent<Projectile>().dir = dir;
-            Debug.Log(dir + " " + firePoint.rotation);
         }
     }
 }

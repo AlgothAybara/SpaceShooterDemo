@@ -9,9 +9,13 @@ public class PlayerCombatController : CombatController
     void Update()
     {
         bulletPrefab = WeaponsList[0];
+        var NPCs = this.GetComponentInParent<SystemManager>().spawnedNPCs;
         // Checks if player presses or holds the shoot button
+        if (Target == null){
+            targetIndex = 0;
+            Target = NPCs[targetIndex];
+        }
         if (Input.GetKeyDown(KeyCode.Tab)){
-            var NPCs = this.GetComponentInParent<SystemManager>().spawnedNPCs;
             targetIndex += 1;
 
             if (NPCs.Count <= targetIndex || Target == null){

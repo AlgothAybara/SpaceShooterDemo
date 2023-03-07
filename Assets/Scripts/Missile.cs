@@ -59,12 +59,12 @@ public class Missile : Projectile
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.Equals(Target.transform.GetChild(0).GetComponent<PolygonCollider2D>())){
+        if (other.gameObject.transform == Target.transform.GetChild(0)){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;
         } 
-        else if (Target.name == "EmptyTarget" || Target == null){
+        else if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile" && (Target.name == "EmptyTarget" || Target == null)){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;

@@ -60,7 +60,6 @@ public class SystemManager : MonoBehaviour
                     location, 
                     ship.transform.rotation,
                     gameObject.transform);
-        // Debug.Log(NPC.GetComponent<NPCData>());
         NPC.GetComponent<NPCData>().AI_index = state;
         NPC.GetComponent<NPCData>().target = planet;
         spawnedNPCs.Add(NPC);

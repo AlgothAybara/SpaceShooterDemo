@@ -12,7 +12,6 @@ public class targetIndicator : MonoBehaviour
     {
         try {
             Target = this.GetComponentInParent<PlayerCombatController>().Target.transform;
-            Debug.Log(Target.name);
             if (Target.name == "EmptyTarget"){
                 SetChildrenActive(false);
                 return;
