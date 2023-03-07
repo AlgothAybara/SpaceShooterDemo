@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - NPC
+  - Projectile
   layers:
   - Default
   - TransparentFX
