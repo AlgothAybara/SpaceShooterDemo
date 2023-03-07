@@ -194,6 +194,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: maxSceneCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: maxStartCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: Planets.Array.data[0]
+      value: 
+      objectReference: {fileID: 2135343571}
+    - target: {fileID: 8268033202221494547, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: armorHealth
+      value: 
+      objectReference: {fileID: 1151757526}
+    - target: {fileID: 8268033202221494547, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: shieldHealth
+      value: 
+      objectReference: {fileID: 1041887064}
+    - target: {fileID: 8268033202221494547, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: shipIntegrity
+      value: 
+      objectReference: {fileID: 2113009136}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
 --- !u!1001 &648153525
@@ -1309,6 +1333,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293989782}
   m_CullTransparentMesh: 1
+--- !u!4 &1330833247 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8268033202221494636, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+  m_PrefabInstance: {fileID: 306199271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340626809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1684,7 @@ PrefabInstance:
     - target: {fileID: 3797457061826712204, guid: 10973b9e268ebd4439457f5a3731c23a, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1330833247}
     - target: {fileID: 3797457061826712205, guid: 10973b9e268ebd4439457f5a3731c23a, type: 3}
       propertyPath: m_RootOrder
       value: 1
