@@ -15,6 +15,8 @@ public class PlayerData : CharacterData
         base.Start();
         ship = currentShip.GetComponent<ShipClass>();
         currentShip.transform.SetAsFirstSibling();        
+
+        
     }
 
     //Color changes as health goes down for each respective health bar

@@ -41,14 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5156322874408496394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fdb83c1419c96b488fce6a2a6925dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 77ec2774b9eefe64e9d2f44b9293e1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableShips:
-  - {fileID: 7574395453819287555, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+  spawnableShips: []
   spawnedNPCs: []
-  Planets:
-  - {fileID: 0}
+  Planets: []
   maxDist: 100
   maxStartCount: 12
   maxSceneCount: 24
+  chance: 1000
+  currentChance: 0

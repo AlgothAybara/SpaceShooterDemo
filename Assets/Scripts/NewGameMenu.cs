@@ -5,17 +5,5 @@ using UnityEngine.UI;
 
 public class NewGameMenu : MainMenu
 {
-    public InputField playerName;
-    public InputField shipName;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
