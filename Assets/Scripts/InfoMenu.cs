@@ -22,8 +22,8 @@ public class InfoMenu : MonoBehaviour
     void Start()
     {
         
-        //var ship = GameObject.Find("SystemManager").transform.GetChild(0).GetComponent<PlayerData>().currentShip.GetComponent<ShipClass>();
-        ship = GameObject.Find("PlayerObject").GetComponent<PlayerData>().currentShip.GetComponent<ShipClass>();
+        ship = GameObject.Find("SystemManager").transform.GetChild(0).GetComponent<PlayerData>().currentShip.GetComponent<ShipClass>();
+        //ship = GameObject.Find("PlayerObject").GetComponent<PlayerData>().currentShip.GetComponent<ShipClass>();
         
     }
     public void StorePlayerData()
