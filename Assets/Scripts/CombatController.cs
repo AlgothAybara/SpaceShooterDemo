@@ -23,7 +23,7 @@ public class CombatController : MonoBehaviour
         // Debug.Log(transform.GetChild(0).transform);
         // Debug.Log(transform.GetChild(0).transform.GetChild(0).transform);
         firePoint = transform.GetChild(0).transform.GetChild(0).transform;
-        // Debug.Log(caller);
+        // Debug.Log(firePoint);
 
     }
 

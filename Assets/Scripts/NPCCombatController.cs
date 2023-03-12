@@ -8,13 +8,19 @@ public class NPCCombatController : CombatController
     // Start is called before the first frame update
     void Start(){
         nextShot = 0;
-        SetFirePoint(gameObject);
-        bulletPrefab = WeaponsList[0];
+        // SetFirePoint(gameObject);
+        // bulletPrefab = WeaponsList[0];
+        Debug.Log(firePoint);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(firePoint==null){
+            SetFirePoint(gameObject);
+        }
+        if(bulletPrefab==null){
+            bulletPrefab = WeaponsList[0];
+        }
     }
 }
