@@ -29,6 +29,12 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, time);
     }
 
+    void Update(){
+        if (Target == null){
+            Target = GameObject.Find("EmptyTarget");
+        }
+    }
+
     virtual public void OnTriggerEnter2D(Collider2D other){
         
         if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile"){

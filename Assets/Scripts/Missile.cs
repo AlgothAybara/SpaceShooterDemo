@@ -25,7 +25,6 @@ public class Missile : Projectile
         }
         FaceTarget();
         Move();
-
     }
 
     void Move() 
@@ -58,16 +57,19 @@ public class Missile : Projectile
     }
 
     public override void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.transform == Target.transform.GetChild(0)){
-            Destroy(gameObject);
-            other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
-            Target = null;
-        } 
-        else if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile" && (Target.name == "EmptyTarget" || Target == null)){
+    {        
+        if (other.transform == parent || other.gameObject.tag == "Planet" || other.gameObject.tag == "Projectile" ){
+            return;
+        }
+        if (Target.tag == "Empty" && other.gameObject.tag == "Ship"){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;
         }
+        else if (other.gameObject.transform == Target.transform.GetChild(0)){
+            Destroy(gameObject);
+            other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
+            Target = null;
+        } 
     }
 }
