@@ -34,10 +34,6 @@ public class NPCIndicator : MonoBehaviour
         {
             SetChildrenActive(false);
         }
-        // else if (direction.magnitude > HideDistanceMax)
-        // {
-        //     SetChildrenActive(false);
-        // }
         else
         {
             SetChildrenActive(true); 

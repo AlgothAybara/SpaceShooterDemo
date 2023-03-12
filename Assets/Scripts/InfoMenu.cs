@@ -42,9 +42,9 @@ public class InfoMenu : MonoBehaviour
 
         DecelerationRate = DecelerationRateText.GetComponent<Text>().text = "Deceleration Rate: " + ship.decelerationRate;
 
-        ShipClass = ShipClassText.GetComponent<Text>().text = "ShipClass: " + ship.shipClass;
+        ShipClass = ShipClassText.GetComponent<Text>().text = "Ship Class: " + ship.shipClass;
 
-        ShipMass = ShipMassText.GetComponent<Text>().text = "ShipMass: " + ship.shipMass;
+        ShipMass = ShipMassText.GetComponent<Text>().text = "Ship Mass: " + ship.shipMass;
 
         MaxSpeed = MaxSpeedText.GetComponent<Text>().text = "Max Speed: " + ship.maxSpeed;
 
