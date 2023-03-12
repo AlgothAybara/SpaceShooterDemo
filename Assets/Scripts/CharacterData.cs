@@ -15,6 +15,7 @@ public class CharacterData : MonoBehaviour
     {
         SetShip();
         // RandomRotation();
+
     }
 
     void SetShip(){
