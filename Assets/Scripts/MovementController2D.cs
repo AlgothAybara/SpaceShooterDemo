@@ -49,6 +49,10 @@ public class MovementController2D : MonoBehaviour
         rb.mass = shipStats.shipMass;
     }
 
+    public float GetSpeed(){
+        return rb.velocity.magnitude;
+    }
+
     
     // // Sets object z rotation to random degree
     // void RandomRotation(){
