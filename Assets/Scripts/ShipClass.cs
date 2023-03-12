@@ -19,6 +19,7 @@ public class ShipClass : MonoBehaviour
         shield.ResetCurrent();
         fuel.ResetCurrent();
         integrity.ResetCurrent();
+
     }
 
     void Update()
@@ -37,11 +38,14 @@ public class ShipClass : MonoBehaviour
         {
             integrity.GetMax();
         }
+
     }
 
     
 
      public void ApplyDamage(int damage){
+
+
         // Debug.Log(other.gameObject.GetComponent<ShipClass>().shield.currentValue);
 
         if(shield.GetCurrent() > 0)
@@ -50,11 +54,10 @@ public class ShipClass : MonoBehaviour
         } 
         else
         {
-            armor.UpdateCurrent(damage);
-            if (armor.currentValue <= 75)
-            {
-                integrity.UpdateCurrent(damage);
-            }  
+            float armorDamage = damage * (armor.currentValue / armor.maxValue);
+
+            armor.UpdateCurrent(armorDamage);
+            integrity.UpdateCurrent(damage - armorDamage);
         }
 
         if(armor.GetCurrent() < 0){

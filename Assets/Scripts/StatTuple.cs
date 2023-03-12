@@ -28,7 +28,7 @@ public class StatTuple
         currentValue = maxValue;
     }
 
-    public void UpdateCurrent(int change) {
+    public void UpdateCurrent(float change) {
         currentValue += change;
         // currentValue = Mathf.Clamp(change, 0, maxValue);
     }
