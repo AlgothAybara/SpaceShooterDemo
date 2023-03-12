@@ -1,14 +1,10 @@
 
 using UnityEngine;
 
-public class NPCIndicator : MonoBehaviour
+public class NPCIndicator : Indicator
 {
-   public Transform Target;
-   public float HideDistanceMin; //Hide arrow when approaching certain distance from object
-   public float HideDistanceMax; //Hide arrow when x distance from object
-
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         try {
             Target = this.GetComponentInParent<PlayerCombatController>().Target.transform;
@@ -26,30 +22,6 @@ public class NPCIndicator : MonoBehaviour
             return;
         }
       
-        var direction = Target.position - transform.position;
-        
-        
-        //Have arrow visible while greater than min distance and less than max distance
-        if (direction.magnitude < HideDistanceMin)
-        {
-            SetChildrenActive(false);
-        }
-        else
-        {
-            SetChildrenActive(true); 
-        }
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-    }
-
-    //This controls the visibility of the targeting arrows.
-    void SetChildrenActive(bool value)
-    {
-         foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(value);
-            }
+        base.Update();
     }
 }
