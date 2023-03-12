@@ -35,7 +35,11 @@ public class NPCData : CharacterData
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         
-        if (other.gameObject.tag == "Projectile" && other.gameObject.GetComponent<Projectile>().parent != transform){
+        if (other.gameObject.tag == "Projectile" 
+                && other.gameObject.GetComponent<Projectile>().parent != transform
+                && currentShip.GetComponent<ShipClass>().armor.currentValue < currentShip.GetComponent<ShipClass>().armor.maxValue
+            )
+        {
             target = other.gameObject.GetComponent<Projectile>().parent.gameObject;
             this.currentAI = aggresive;
             AI_index = 0;
