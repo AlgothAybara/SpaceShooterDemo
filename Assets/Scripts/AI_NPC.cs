@@ -20,4 +20,35 @@ public class AI_NPC : MonoBehaviour
 
     }
 
+    protected bool StopShip(MovementController2D movement, bool spd){
+        bool Vang = (Mathf.Abs(movement.SignedAngleTo(-movement.rb.velocity)) > 5);
+        if(spd && Vang){
+            Debug.Log("180");
+            movement.vAxis = 0;
+            movement.Rotate180();
+        }
+        else if(spd) {
+            Debug.Log("Stopping");
+            movement.vAxis = 1;
+        } 
+        else if (!spd){
+            Debug.Log("Done Stopping");
+            movement.vAxis = 0;
+            return false;
+        } 
+        // else if (!spd && approach){
+        //     // Debug.Log("Done Stopping");
+        //     stop = false;
+        //     movement.vAxis = 0;
+        // } else if (!spd && !approach){
+        //     // Debug.Log("Landed");
+        //     stop = false;
+        //     movement.vAxis = 0;
+        // } 
+        else {
+            Debug.Log("Should not be getting this error");
+        }
+        return true;
+    }
+
 }

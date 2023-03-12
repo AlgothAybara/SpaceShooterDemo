@@ -35,7 +35,7 @@ public class NPCData : CharacterData
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         
-        if (other.gameObject.tag == "Projectile"){
+        if (other.gameObject.tag == "Projectile" && other.gameObject.GetComponent<Projectile>().parent != transform){
             target = other.gameObject.GetComponent<Projectile>().parent.gameObject;
             this.currentAI = aggresive;
             AI_index = 0;
