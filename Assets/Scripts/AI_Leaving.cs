@@ -25,7 +25,7 @@ public class AI_Leaving : AI_NPC
 
         if(stop) {
             // Debug.Log("Stop Function");
-            StopShip(movement, spd);
+            stop = StopShip(movement, spd);
         }
         else if (dist)
         {
@@ -61,23 +61,23 @@ public class AI_Leaving : AI_NPC
         return false;
     }
 
-    void StopShip(MovementController2D movement, bool spd){
-        bool Vang = (Mathf.Abs(movement.SignedAngleTo(-movement.rb.velocity)) > 5);
-        if(spd && Vang){
-            // Debug.Log("180");
-            movement.vAxis = 0;
-            movement.Rotate180();
-        }
-        else if(spd) {
-            // Debug.Log("Stopping");
-            movement.vAxis = 1;
-        } 
-        else if (!spd){
-            // Debug.Log("Done Stopping");
-            stop = false;
-            movement.vAxis = 0;
-        } else {
-            Debug.Log("Should not be getting this error");
-        }
-    }
+    // void StopShip(MovementController2D movement, bool spd){
+    //     bool Vang = (Mathf.Abs(movement.SignedAngleTo(-movement.rb.velocity)) > 5);
+    //     if(spd && Vang){
+    //         // Debug.Log("180");
+    //         movement.vAxis = 0;
+    //         movement.Rotate180();
+    //     }
+    //     else if(spd) {
+    //         // Debug.Log("Stopping");
+    //         movement.vAxis = 1;
+    //     } 
+    //     else if (!spd){
+    //         // Debug.Log("Done Stopping");
+    //         stop = false;
+    //         movement.vAxis = 0;
+    //     } else {
+    //         Debug.Log("Should not be getting this error");
+    //     }
+    // }
 }

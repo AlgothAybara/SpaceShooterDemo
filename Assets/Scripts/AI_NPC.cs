@@ -23,16 +23,16 @@ public class AI_NPC : MonoBehaviour
     protected bool StopShip(MovementController2D movement, bool spd){
         bool Vang = (Mathf.Abs(movement.SignedAngleTo(-movement.rb.velocity)) > 5);
         if(spd && Vang){
-            Debug.Log("180");
+            // Debug.Log("180");
             movement.vAxis = 0;
             movement.Rotate180();
         }
         else if(spd) {
-            Debug.Log("Stopping");
+            // Debug.Log("Stopping");
             movement.vAxis = 1;
         } 
         else if (!spd){
-            Debug.Log("Done Stopping");
+            // Debug.Log("Done Stopping");
             movement.vAxis = 0;
             return false;
         } 
