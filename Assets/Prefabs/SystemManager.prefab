@@ -47,11 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableShips:
-  - {fileID: 7574395453819287555, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
+  - {fileID: 5936872198936489155, guid: 64954d2809efe484fb348fbf6385a216, type: 3}
+  - {fileID: 5936872198936489155, guid: fd12c81fdbcf7c94fb438fba8b08d09e, type: 3}
   spawnedNPCs:
   - {fileID: 3727705684760079880}
   Planets:
   - {fileID: 0}
+  NPCPrefab: {fileID: 7574395453819287555, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
   maxDist: 100
   maxStartCount: 3
   maxSceneCount: 12
