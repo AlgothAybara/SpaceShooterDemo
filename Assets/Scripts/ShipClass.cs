@@ -39,6 +39,7 @@ public class ShipClass : MonoBehaviour
             integrity.GetMax();
         }
 
+        shield.RegenCurrent();
     }
 
     
@@ -60,7 +61,8 @@ public class ShipClass : MonoBehaviour
             integrity.UpdateCurrent(damage - armorDamage);
         }
 
-        if(armor.GetCurrent() < 0){
+        if(integrity.GetCurrent() <= 0){
+            Debug.Log(gameObject + " Destroyed");
             Destroy(transform.parent.gameObject);
             Destroy(gameObject);
         }
