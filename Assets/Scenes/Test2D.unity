@@ -366,7 +366,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3264944658357313232, guid: 2728540ac6e3f8144aec158d8f2dfa9d, type: 3}
   m_PrefabInstance: {fileID: 357851487}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &357851489
+--- !u!114 &357851491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -375,12 +375,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 357851488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81d64237627cc34cbc2c15825275474, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c907770067d50e488a57e666f7bd33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 2135343574}
-  HideDistanceMin: 20
-  HideDistanceMax: 300
+  Target: {fileID: 551691619}
+  HideDistanceMin: 75
 --- !u!1 &422437330
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +871,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   HideDistanceMin: 0
-  HideDistanceMax: 0
 --- !u!1 &860304496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,6 +3234,18 @@ PrefabInstance:
     - target: {fileID: 3727705683551713514, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: chance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: maxSceneCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: maxStartCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3727705683551713515, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
       propertyPath: Planets.Array.data[0]
