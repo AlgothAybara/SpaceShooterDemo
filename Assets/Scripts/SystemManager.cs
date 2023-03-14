@@ -7,6 +7,7 @@ public class SystemManager : MonoBehaviour
     public List<GameObject> spawnableShips;
     public List<GameObject> spawnedNPCs;
     public List<GameObject> Planets;
+    public GameObject NPCPrefab;
     public  int maxDist = 100;
     public int maxStartCount = 12;
     public int maxSceneCount = 24;
@@ -56,10 +57,11 @@ public class SystemManager : MonoBehaviour
     private void SpawnNPC(Vector3 location, int state){
         var ship = spawnableShips[Random.Range(0, spawnableShips.Count)];
         var planet = Planets[Random.Range(0, Planets.Count)];
-        var NPC = Instantiate(ship, 
+        var NPC = Instantiate(NPCPrefab, 
                     location, 
                     ship.transform.rotation,
                     gameObject.transform);
+        NPC.GetComponent<NPCData>().Ship = ship;
         NPC.GetComponent<NPCData>().AI_index = state;
         NPC.GetComponent<NPCData>().target = planet;
         spawnedNPCs.Add(NPC);

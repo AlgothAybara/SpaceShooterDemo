@@ -21,9 +21,12 @@ public class NPCData : CharacterData
 
     void FixedUpdate(){
         bool updateState = this.currentAI.Execute(movement, combat, target);
-        if (updateState){
+        if (updateState && AI_index < AI_list.Count){
             currentAI = AI_list[AI_index];
             AI_index += 1;
+        }
+        else if (updateState && AI_index == AI_list.Count){
+            Debug.Log(currentAI);
         }
         // Debug.Log(this.currentAI);
 
@@ -37,7 +40,7 @@ public class NPCData : CharacterData
         
         if (other.gameObject.tag == "Projectile" 
                 && other.gameObject.GetComponent<Projectile>().parent != transform
-                && currentShip.GetComponent<ShipClass>().armor.currentValue < currentShip.GetComponent<ShipClass>().armor.maxValue
+                && currentShip.GetComponent<ShipClass>().shield.currentValue < currentShip.GetComponent<ShipClass>().shield.maxValue
             )
         {
             target = other.gameObject.GetComponent<Projectile>().parent.gameObject;
