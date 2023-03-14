@@ -19,7 +19,7 @@ public class ShipClass : MonoBehaviour
         shield.ResetCurrent();
         fuel.ResetCurrent();
         integrity.ResetCurrent();
-
+        InvokeRepeating("ApplyRegen", 0f, 1f);
     }
 
     void Update()
@@ -38,11 +38,11 @@ public class ShipClass : MonoBehaviour
         {
             integrity.GetMax();
         }
-
-        shield.RegenCurrent();
     }
 
-    
+    private void ApplyRegen(){
+        shield.RegenCurrent();
+    }
 
      public void ApplyDamage(int damage){
 
