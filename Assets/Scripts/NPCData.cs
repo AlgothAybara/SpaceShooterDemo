@@ -29,7 +29,6 @@ public class NPCData : CharacterData
             Debug.Log(currentAI);
         }
         // Debug.Log(this.currentAI);
-
     }
 
     // void Update(){
