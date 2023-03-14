@@ -226,7 +226,7 @@ MonoBehaviour:
   shield:
     currentValue: 0
     maxValue: 100
-    regenRate: 0
+    regenRate: 0.5
   fuel:
     currentValue: 0
     maxValue: 0
