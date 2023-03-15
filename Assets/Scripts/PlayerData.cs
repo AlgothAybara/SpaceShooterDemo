@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PlayerData : CharacterData
 {
     public Image shieldHealth; //UI image of shield health bar
@@ -9,14 +10,14 @@ public class PlayerData : CharacterData
     public Image shipIntegrity; //UI image of ship's structural integrity.
     float lerpSpeed; //Math function to smooth out UI Image with health
     private ShipClass ship;
+    PauseMenu pauseMenu;
+    
 
     public override void Start()
     {
         base.Start();
         ship = currentShip.GetComponent<ShipClass>();
         currentShip.transform.SetAsFirstSibling();        
-
-        
     }
 
     //Color changes as health goes down for each respective health bar
@@ -52,8 +53,28 @@ public class PlayerData : CharacterData
         ColorChanger();
     }
 
+    //This handles a collision trigger for landing on planets.
+    public bool OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Planet")
+        {
+            Debug.Log("Arrived at Planet");
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+            if (pauseMenu.isGamePaused) //This is set to false to play
+            {
+                pauseMenu.Resume();
+            }
+            else //If pushed, then it's set to true to pause
+            {
+                pauseMenu.Pause();
+            }
+        }
+    }
+    }
 
-   
 
-   
 }
+
+   
+

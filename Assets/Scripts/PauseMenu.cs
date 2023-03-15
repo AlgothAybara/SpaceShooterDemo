@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool isGamePaused = false; //Set the boolean to false to say that game starts as playable
+    public bool isGamePaused = false; //Set the boolean to false to say that game starts as playable
 
     public GameObject pauseMenuUI;
 
@@ -40,12 +40,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isGamePaused = true;
-    }
-
-    //This will load a new menu that lists the player's info (speed, ship name, turn ratio, etc.)
-    public void PlayerDataMenu()
-    {
-        Debug.Log("Loading Player Data...");
     }
 
     //This will quit the game and return to the main menu
