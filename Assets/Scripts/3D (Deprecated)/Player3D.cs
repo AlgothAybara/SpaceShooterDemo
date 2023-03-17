@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player3D : MonoBehaviour
 {
     public float moveSpeed, rotateSpeed, maxSpeed;
     public Rigidbody rb;
