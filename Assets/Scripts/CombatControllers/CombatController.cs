@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject ParentObject;
@@ -29,7 +30,7 @@ public class CombatController : MonoBehaviour
 
     public void Shoot()
     {
-        if(Time.time> nextShot)
+        if(Time.time> nextShot && Time.timeScale != 0)
         {   
             // sets the shot cooldown
             nextShot = Time.time + bulletPrefab.GetComponent<Projectile>().rateOfFire;
