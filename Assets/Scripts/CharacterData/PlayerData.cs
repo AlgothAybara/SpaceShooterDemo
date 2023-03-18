@@ -57,7 +57,7 @@ public class PlayerData : CharacterData
     {
         if(other.gameObject.tag == "Planet")
         {
-            Debug.Log("Arrived at Planet");
+            // Debug.Log("Arrived at Planet");
             if (Input.GetKeyDown(KeyCode.L))
             {
                 if (pauseMenu.isGamePaused) //This is set to false to play
