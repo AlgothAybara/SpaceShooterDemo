@@ -55,6 +55,7 @@ MonoBehaviour:
   WeaponsList:
   - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
   nextShot: 0
+  damageIndicator: {fileID: -1540826232271966971, guid: bad4243a7827e6649a1a4ed2c6ae03a6, type: 3}
 --- !u!114 &3141890635837529087
 MonoBehaviour:
   m_ObjectHideFlags: 0

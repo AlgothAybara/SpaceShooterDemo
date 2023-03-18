@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerCombatController : CombatController
 {
+    public DamageIndicator damageIndicator;
+    Projectile projectile;
+
     private int targetIndex = -1;
     // Update is called once per frame
     void Update()
@@ -34,5 +37,10 @@ public class PlayerCombatController : CombatController
         nextShot = 0;
         SetFirePoint(gameObject);
         bulletPrefab = WeaponsList[0];
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        damageIndicator.Create(transform.position, projectile.damage);
     }
 }
