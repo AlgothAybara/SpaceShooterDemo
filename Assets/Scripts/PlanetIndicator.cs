@@ -5,19 +5,14 @@ public class PlanetIndicator : MonoBehaviour
 {
    public Transform Target;
    public float HideDistanceMin; //Hide arrow when approaching certain distance from object
-   public float HideDistanceMax; //Hide arrow when x distance from object
 
     // Update is called once per frame
     void Update()
     {
         var direction = Target.position - transform.position;
-        
+        // Debug.Log(direction.magnitude);
         //Have arrow visible while greater than min distance and less than max distance
         if (direction.magnitude < HideDistanceMin)
-        {
-            SetChildrenActive(false);
-        }
-        else if (direction.magnitude > HideDistanceMax)
         {
             SetChildrenActive(false);
         }

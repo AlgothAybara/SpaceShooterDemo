@@ -46,7 +46,7 @@ public class SystemManager : MonoBehaviour
     private void AttemptSpawn(){
         int guess = Random.Range(0, chance);
         // int currentChance = Random.Range(0, chance);
-        if (guess == currentChance)
+        if (guess == currentChance && Time.timeScale != 0f)
         {
             currentChance = Random.Range(0, chance);
             SpawnNPC(RandomLocation().normalized * maxDist, 0);
