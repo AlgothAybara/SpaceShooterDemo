@@ -9,6 +9,7 @@ public class AI_Landing : AI_NPC
     public bool feedback = false;
 
     public override bool Execute(MovementController2D movement, CombatController combat, GameObject target){
+        // Debug.Log(target);
         combat.Target = target;
         movement.cruise = 0.5f;
 
@@ -26,7 +27,7 @@ public class AI_Landing : AI_NPC
 
         // Debug.Log(dir + " " + dist + " " + speed);
         if(stop) {
-            // Debug.Log("Stop Function");
+            Debug.Log("Stop Function");
             stop = StopShip(movement, spd);
             if (!spd && !approach){
                 feedback = true;
@@ -36,30 +37,37 @@ public class AI_Landing : AI_NPC
         {
             // if not facing the target and not moving
             if(!dir && !spd){
-                // Debug.Log("Not facing, Not Moving");
+                Debug.Log("Not facing, Not Moving");
                 movement.vAxis = 0;
                 movement.FaceTarget(target);
             } 
             // if not facing the target and moving
             // The second half of below OR needs to be a function of current speed and RotateSpeed
             else if ((!dir && spd) || (distance < speed * 1.65f)) {
-                // Debug.Log("Not facing, Moving");
+                Debug.Log("Not facing, Moving");
                 stop = true;
             } 
             // if facing the target and moving
-            else if (dir && ang && !spd){
-                // Debug.Log("Facing, Not Moving");
+            else if (dir && !spd){
+                Debug.Log("Facing, Not Moving");
                 movement.FaceTarget(target);
                 movement.vAxis = 1;
             }
             else if (dir && spd) {
-                // Debug.Log("Facing, Moving");
+                Debug.Log("Facing, Moving");
                 movement.vAxis = 1;
                 movement.FaceTarget(target);
             } else {
-                // Debug.Log("You should not be getting this error.");
-                // Debug.Log("Dot" + dot);
-                // Debug.Log(Mathf.Abs(movement.SignedAngleTo(target.transform.position)));
+                Debug.Log("You should not be getting this error."
+                    + "\nTarget: " + target
+                    + "\nDot: " + dot
+                    + "\nDir: " + dir
+                    + "\nAngle: " + Mathf.Abs(movement.SignedAngleTo(target.transform.position))
+                    + "\nAng: " + ang
+                    + "\nSpeed: " + speed
+                    + "\nSpd: " + spd
+                    + "\nDistance: " + distance
+                );
                 movement.FaceTarget(target);
                 movement.vAxis = 0;
             }
