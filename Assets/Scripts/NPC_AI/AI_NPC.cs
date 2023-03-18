@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AI_NPC : MonoBehaviour
 {
-    public GameObject target;
+    // public GameObject target;
 
     public virtual bool Execute(MovementController2D movement, CombatController combat, GameObject target){
         Move(movement, target);
