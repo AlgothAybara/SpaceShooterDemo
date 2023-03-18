@@ -866,6 +866,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!60 &461912849 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8158579750745264227, guid: 1cb220cbf3aa0a64595239191c19fd58, type: 3}
+  m_PrefabInstance: {fileID: 8158579751116396488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &481445550
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,6 +4278,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1712361228}
+        m_TargetAssemblyTypeName: PlayerData, Assembly-CSharp
+        m_MethodName: OnTriggerStay2D
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 461912849}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider2D, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1340626810}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pause
@@ -4361,6 +4378,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGamePaused: 0
   pauseMenuUI: {fileID: 524801236}
+--- !u!114 &1712361228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8268033202221494547, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+  m_PrefabInstance: {fileID: 1932459965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3fe375c4e9ba44983ac79bef34b525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1713857662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,6 +4891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCIndicator
       objectReference: {fileID: 0}
+    - target: {fileID: 7816795502526101158, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
+      propertyPath: damageIndicator
+      value: 
+      objectReference: {fileID: -1540826232271966971, guid: bad4243a7827e6649a1a4ed2c6ae03a6, type: 3}
     - target: {fileID: 8268033202221494547, guid: 73e8d02597c976848a2c4602addd9f74, type: 3}
       propertyPath: armorHealth
       value: 
