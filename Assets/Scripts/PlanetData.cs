@@ -9,10 +9,11 @@ public class PlanetData : MonoBehaviour
     public Collision collision;
     public Inventory marketInventory;
     public Inventory shipInventory;
+    public bool market, shipyward;
 
     public string Name;
     public string Desc;
-    public Image image;
+    public Sprite planetSprite, menuSprite;
 
     // Start is called before the first frame update
     void Start()

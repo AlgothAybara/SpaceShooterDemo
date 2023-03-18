@@ -60,10 +60,11 @@ public class SystemManager : MonoBehaviour
         var NPC = Instantiate(NPCPrefab, 
                     location, 
                     ship.transform.rotation,
-                    gameObject.transform);
+                    gameObject.transform.GetChild(2));
         NPC.GetComponent<NPCData>().Ship = ship;
         NPC.GetComponent<NPCData>().AI_index = state;
         NPC.GetComponent<NPCData>().target = planet;
+        Debug.Log(NPC.GetComponent<NPCData>().target);
         spawnedNPCs.Add(NPC);
     }
 }
