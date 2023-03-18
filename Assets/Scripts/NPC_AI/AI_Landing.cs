@@ -27,7 +27,7 @@ public class AI_Landing : AI_NPC
 
         // Debug.Log(dir + " " + dist + " " + speed);
         if(stop) {
-            Debug.Log("Stop Function");
+            // Debug.Log("Stop Function");
             stop = StopShip(movement, spd);
             if (!spd && !approach){
                 feedback = true;
@@ -37,24 +37,24 @@ public class AI_Landing : AI_NPC
         {
             // if not facing the target and not moving
             if(!dir && !spd){
-                Debug.Log("Not facing, Not Moving");
+                // Debug.Log("Not facing, Not Moving");
                 movement.vAxis = 0;
                 movement.FaceTarget(target);
             } 
             // if not facing the target and moving
             // The second half of below OR needs to be a function of current speed and RotateSpeed
             else if ((!dir && spd) || (distance < speed * 1.65f)) {
-                Debug.Log("Not facing, Moving");
+                // Debug.Log("Not facing, Moving");
                 stop = true;
             } 
             // if facing the target and moving
             else if (dir && !spd){
-                Debug.Log("Facing, Not Moving");
+                // Debug.Log("Facing, Not Moving");
                 movement.FaceTarget(target);
                 movement.vAxis = 1;
             }
             else if (dir && spd) {
-                Debug.Log("Facing, Moving");
+                // Debug.Log("Facing, Moving");
                 movement.vAxis = 1;
                 movement.FaceTarget(target);
             } else {
