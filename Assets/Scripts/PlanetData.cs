@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlanetData : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlanetData : MonoBehaviour
     public Inventory shipInventory;
 
     public string Name;
+    public string Desc;
+    public Image image;
 
     // Start is called before the first frame update
     void Start()
