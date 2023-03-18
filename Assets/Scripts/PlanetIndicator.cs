@@ -10,7 +10,7 @@ public class PlanetIndicator : MonoBehaviour
     void Update()
     {
         var direction = Target.position - transform.position;
-        Debug.Log(direction.magnitude);
+        // Debug.Log(direction.magnitude);
         //Have arrow visible while greater than min distance and less than max distance
         if (direction.magnitude < HideDistanceMin)
         {
