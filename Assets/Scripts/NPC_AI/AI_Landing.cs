@@ -12,6 +12,7 @@ public class AI_Landing : AI_NPC
         // Debug.Log(target);
         combat.Target = target;
         movement.cruise = 0.5f;
+        ShipClass ship = movement.shipStats;
 
         float speed = movement.rb.velocity.magnitude;
         // Debug.Log("Speed" + speed);
@@ -24,6 +25,7 @@ public class AI_Landing : AI_NPC
         bool dir = (dot > 0.95);
         bool ang = (Mathf.Abs(movement.SignedAngleTo(target.transform.position)) < 2);
         bool spd = (speed > 1);
+        float turnDist = (180/ship.turnRate) + ship.maxSpeed/ship.accelerationRate;
 
         // Debug.Log(dir + " " + dist + " " + speed);
         if(stop) {
@@ -43,7 +45,7 @@ public class AI_Landing : AI_NPC
             } 
             // if not facing the target and moving
             // The second half of below OR needs to be a function of current speed and RotateSpeed
-            else if ((!dir && spd) || (distance < speed * 1.65f)) {
+            else if ((!dir && spd) || (distance < speed * turnDist)) {
                 // Debug.Log("Not facing, Moving");
                 stop = true;
             } 
