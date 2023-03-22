@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
       propertyPath: chance
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
       propertyPath: maxSceneCount
@@ -710,10 +710,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
       propertyPath: maxStartCount
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
       propertyPath: Planets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
+      propertyPath: PlanetBias.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
@@ -724,6 +728,14 @@ PrefabInstance:
       propertyPath: Planets.Array.data[1]
       value: 
       objectReference: {fileID: 2124020349}
+    - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
+      propertyPath: PlanetBias.Array.data[0]
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331650652846735568, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
+      propertyPath: PlanetBias.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7331650652846735569, guid: ca4aaae077e554c45bcd119f2783fce2, type: 3}
       propertyPath: m_RootOrder
       value: 3
