@@ -7,6 +7,7 @@ public class SystemManager : MonoBehaviour
     public List<GameObject> spawnableShips;
     public List<GameObject> spawnedNPCs;
     public List<GameObject> Planets;
+    public List<int> PlanetBias;
     public GameObject NPCPrefab;
     public  int maxDist = 100;
     public int maxStartCount = 12;
@@ -14,10 +15,12 @@ public class SystemManager : MonoBehaviour
     public int chance = 1000;
     public int currentChance;
     private int[] spawnState = {0,2};
+    private RouletteSelect Rselect;
 
     // Start is called before the first frame update
     void Start()
     {
+        Rselect = new RouletteSelect();
         currentChance = Random.Range(0, chance);
         int spawnCount = Random.Range(0, maxStartCount);
         for (int i = 0; i < spawnCount; i++){
@@ -56,7 +59,7 @@ public class SystemManager : MonoBehaviour
 
     private void SpawnNPC(Vector3 location, int state){
         var ship = spawnableShips[Random.Range(0, spawnableShips.Count)];
-        var planet = Planets[Random.Range(0, Planets.Count)];
+        var planet = Rselect.Select(Planets, PlanetBias);
         var NPC = Instantiate(NPCPrefab, 
                     location, 
                     ship.transform.rotation,
@@ -64,7 +67,6 @@ public class SystemManager : MonoBehaviour
         NPC.GetComponent<NPCData>().Ship = ship;
         NPC.GetComponent<NPCData>().AI_index = state;
         NPC.GetComponent<NPCData>().target = planet;
-        Debug.Log(NPC.GetComponent<NPCData>().target);
         spawnedNPCs.Add(NPC);
     }
 }
