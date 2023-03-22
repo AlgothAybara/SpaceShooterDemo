@@ -68,5 +68,6 @@ public class SystemManager : MonoBehaviour
         NPC.GetComponent<NPCData>().AI_index = state;
         NPC.GetComponent<NPCData>().target = planet;
         spawnedNPCs.Add(NPC);
+        spawnedNPCs.RemoveAll(item => item == null);
     }
 }
