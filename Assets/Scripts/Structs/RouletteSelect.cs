@@ -5,7 +5,7 @@ using UnityEngine;
 public class RouletteSelect : MonoBehaviour
 {
     // Biased select of items in a tuple list.
-    public object Select(List<(object, int)> Tlist){
+    public object Select(List<(GameObject, int)> Tlist){
         var max = Sum(Tlist);
         var guess = Random.Range(0, max);
         foreach(var tuple in Tlist){
@@ -17,7 +17,7 @@ public class RouletteSelect : MonoBehaviour
     }
 
     // iterates through tuple list to calculate max of list
-    private int Sum(List<(object, int)> Tlist){
+    private int Sum(List<(GameObject, int)> Tlist){
         var sum = 0;
         foreach (var tuple in Tlist){
             sum += tuple.Item2;
