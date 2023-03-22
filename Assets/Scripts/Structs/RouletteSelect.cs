@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RouletteSelect : MonoBehaviour
+public class RouletteSelect
 {
     // Biased select of items in a tuple list.
     public GameObject Select(List<GameObject> Plist, List<int> Ilist){
@@ -13,7 +13,7 @@ public class RouletteSelect : MonoBehaviour
         for(var i = 0; i < Ilist.Count; i++){
             if (guess <= Ilist[i]){
                 select = i;
-                Debug.Log(max + " " + guess + " " + select);
+                // Debug.Log(max + " " + guess + " " + select);
                 break;
             }
         }
