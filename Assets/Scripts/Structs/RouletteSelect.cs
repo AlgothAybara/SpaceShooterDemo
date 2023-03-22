@@ -5,22 +5,23 @@ using UnityEngine;
 public class RouletteSelect : MonoBehaviour
 {
     // Biased select of items in a tuple list.
-    public GameObject Select(List<(GameObject, int)> Tlist){
-        var max = Sum(Tlist);
+    public GameObject Select(List<GameObject> Plist, List<int> Ilist){
+        var max = Sum(Ilist);
         var guess = Random.Range(0, max);
-        foreach(var tuple in Tlist){
-            if (guess <= tuple.Item2){
-                return tuple.Item1;
+        var select = 0;
+        for(var i = 0; i < Ilist.Count; i++){
+            if (guess <= Ilist[i]){
+                select = i;
             }
         }
-        return Tlist[0].Item1;
+        return Plist[select];
     }
 
     // iterates through tuple list to calculate max of list
-    private int Sum(List<(GameObject, int)> Tlist){
+    private int Sum(List<int> Ilist){
         var sum = 0;
-        foreach (var tuple in Tlist){
-            sum += tuple.Item2;
+        foreach (var num in Ilist){
+            sum += num;
         }
         return sum;
     }
