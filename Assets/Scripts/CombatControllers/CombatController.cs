@@ -6,7 +6,6 @@ public class CombatController : MonoBehaviour
 {
     ShipClass ship;
     simpleProjectile projectile; 
-    public GameObject pauseMenuUI;
     public Transform firePoint;
 
     public GameObject bulletPrefab;

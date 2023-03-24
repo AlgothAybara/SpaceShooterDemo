@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCData : CharacterData
 {
+    float lerpSpeed;
     public CombatController combat;
     public MovementController2D movement;
+    public Image shieldHealth;
+    public Image integrityHealth;
     
     public int AI_index = 0;
     public GameObject target;
@@ -16,9 +20,16 @@ public class NPCData : CharacterData
 
     public override void Start() {
         base.Start();
-        currentAI = AI_list[AI_index];
+        currentAI = AI_list[AI_index];    
+
     }
 
+    void Update()
+    {
+        lerpSpeed = 5f * Time.deltaTime;
+        ColorChanger();
+        HealthBarFiller();
+    }     
     void FixedUpdate(){
         bool updateState = this.currentAI.Execute(movement, combat, target);
         if (updateState && AI_index < AI_list.Count){
@@ -37,7 +48,7 @@ public class NPCData : CharacterData
 
     virtual public void OnTriggerEnter2D(Collider2D other){
         
-        if (other.gameObject.tag == "Projectile" 
+        if (other.gameObject.tag == "Projectile"
                 && other.gameObject.GetComponent<Projectile>().parent != transform
                 && currentShip.GetComponent<ShipClass>().shield.currentValue < currentShip.GetComponent<ShipClass>().shield.maxValue
             )
@@ -47,6 +58,23 @@ public class NPCData : CharacterData
             AI_index = 0;
         }
     }
+    void ColorChanger()
+    {
+        Color shieldHealthColor = Color.Lerp(Color.red, Color.blue, (ship.shield.currentValue / ship.shield.maxValue));
+        shieldHealth.color = shieldHealthColor;
+
+        Color integrityHealthColor = Color.Lerp(Color.red, Color.yellow, (ship.integrity.currentValue / ship.integrity.maxValue));
+        integrityHealth.color = integrityHealthColor;
+
+    }
+
+    void HealthBarFiller()
+    {
+        shieldHealth.fillAmount = Mathf.Lerp(shieldHealth.fillAmount, ship.shield.currentValue / ship.shield.maxValue, lerpSpeed);
+        integrityHealth.fillAmount = Mathf.Lerp(integrityHealth.fillAmount, ship.integrity.currentValue / ship.integrity.maxValue, lerpSpeed);
+
+    }
+    
 
 
     

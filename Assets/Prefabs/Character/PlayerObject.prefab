@@ -48,14 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1099baa02b0754c9bf63e0802b69e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}
   firePoint: {fileID: 501535275229016329, guid: 29b27522f75d31d4c956555fb4a30f2c, type: 3}
+  damageIndicator: {fileID: 2581546162818250076, guid: f2809ab226aca8242a61e2f00a4d92cd, type: 3}
   bulletPrefab: {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
   ParentObject: {fileID: 3141890635837529085}
   Target: {fileID: 0}
   WeaponsList:
   - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
   nextShot: 0
-  damageIndicator: {fileID: -1540826232271966971, guid: bad4243a7827e6649a1a4ed2c6ae03a6, type: 3}
 --- !u!114 &3141890635837529087
 MonoBehaviour:
   m_ObjectHideFlags: 0

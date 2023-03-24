@@ -126,9 +126,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7826962816588866366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c9202a97714d4a4f9b07d571c37f4b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 859426bc82e028a48a39999cc15144db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 7574395453819287678, guid: a6184a1aa90517848b4bbd619ecba3a1, type: 3}
-  HideDistanceMin: 5
-  HideDistanceMax: 100
+  Target: {fileID: 0}
+  HideDistanceMin: 0

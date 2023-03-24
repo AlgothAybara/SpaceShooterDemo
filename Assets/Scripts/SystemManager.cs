@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SystemManager : MonoBehaviour
 {
+
     public List<GameObject> spawnableShips;
     public List<GameObject> spawnedNPCs;
     public List<GameObject> Planets;
