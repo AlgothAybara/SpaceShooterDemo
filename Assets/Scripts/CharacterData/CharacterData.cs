@@ -9,7 +9,7 @@ public class CharacterData : MonoBehaviour
     public GameObject currentShip;
     public int Currency;
     public List<int> Relations_List;
-    private ShipClass ship;
+    protected ShipClass ship;
 
 
     // Start is called before the first frame update
