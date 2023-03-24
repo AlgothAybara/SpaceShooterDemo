@@ -67,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: bd31b61b99685bd4b95bf099cb142a50, type: 3}
-  m_Type: 3
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b7c586654a696479e09adecb49030a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 7482667652216324306, guid: bd31b61b99685bd4b95bf099cb142a50, type: 3}
+  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   shipCollider: {fileID: 0}
   shipName: 
   shipClass: 
