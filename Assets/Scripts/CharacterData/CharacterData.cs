@@ -9,6 +9,8 @@ public class CharacterData : MonoBehaviour
     public GameObject currentShip;
     public int Currency;
     public List<int> Relations_List;
+    private ShipClass ship;
+
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -21,6 +23,7 @@ public class CharacterData : MonoBehaviour
     void SetShip(){
         // Instantiates player_data.Ship as a gameObject in the scene
         currentShip = Instantiate(this.Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
+        ship = currentShip.GetComponent<ShipClass>();
         // Sets the PlayerOnject as the parent of currentShip
         // currentShip.transform.parent = this.transform;
     }

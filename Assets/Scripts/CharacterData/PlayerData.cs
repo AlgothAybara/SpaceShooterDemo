@@ -8,14 +8,12 @@ public class PlayerData : CharacterData
     public Image armorHealth; //UI image of armor health bar
     public Image shipIntegrity; //UI image of ship's structural integrity.
     float lerpSpeed; //Math function to smooth out UI Image with health
-    private ShipClass ship;
     PauseMenu pauseMenu;
 
 
     public override void Start()
     {
         base.Start();
-        ship = currentShip.GetComponent<ShipClass>();
         currentShip.transform.SetAsFirstSibling();        
     }
 
