@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D rb;
     public Vector3 dir;
 
+    public GameObject damageIndicator; 
+
     public float rateOfFire = 0.5f;
 
     public int damage = 5; //How much damage?
@@ -38,8 +40,14 @@ public class Projectile : MonoBehaviour
     virtual public void OnTriggerEnter2D(Collider2D other){
         
         if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile"){
+            var dmg = other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
+            if (GetComponent<Renderer>().isVisible)
+            {
+                var di = Instantiate(damageIndicator, transform.position, Quaternion.identity);
+                di.GetComponent<DamageIndicator>().dmg = dmg;
+            }
             Destroy(gameObject);
-            other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
+
         }
         
         if(gameObject.tag == "Planet")

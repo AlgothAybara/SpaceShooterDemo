@@ -1,53 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class DamageIndicator : MonoBehaviour
 {
-    Transform damagePopUp;
+    public GameObject DamageText;
 
-    private TextMeshPro textMesh;
-    private Color textColor;
-    float disappearTime;
-    [SerializeField] private Transform damageIndicator;
-    
-    public void Create(Vector3 position, float damage)
-    {
-        damagePopUp = Instantiate(damageIndicator, position, Quaternion.identity);
-        DamageIndicator damageText = damagePopUp.GetComponent<DamageIndicator>();
-        damageText.Setup(damage);
-    }
-    
-    private void Start()
-    {
-        textMesh = transform.GetComponent<TextMeshPro>();
-        
-    }
+    public int dmg;
 
-    public void Setup(float damage)
+    void Start()
     {
-        textMesh.SetText(damage.ToString());
-        disappearTime = 1f;
-        textColor = textMesh.color;
+        //Destroys the gameobject after 1 second
+        Destroy(gameObject, 1f);
     }
 
     void Update()
     {
-        float moveYSpeed = 5f;
-        transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
+        StoreDamage();
 
-        disappearTime -= Time.deltaTime;
-        if (disappearTime < 0)
-        {
-            float disappearSpeed = 5f;
-            textColor.a -= disappearSpeed * Time.deltaTime;
-            textMesh.color = textColor;
-            if (textColor.a < 0)
-            {
-                Destroy(gameObject);
-            }
-        }
+        //makes the number float upwards at set speed, and sets positioning
+        float moveYSpeed = 5f;
+        transform.position += new Vector3(0,moveYSpeed, 0) * Time.deltaTime;
+    }
+
+
+    //This will store the damage input and set it to a string to be seen on-screen
+    public void StoreDamage()
+    { 
+        //Debug.Log(DamageText.GetComponent<TextMesh>().text);
+        DamageText.GetComponent<TextMesh>().text = dmg.ToString();
 
     }
+
 }
