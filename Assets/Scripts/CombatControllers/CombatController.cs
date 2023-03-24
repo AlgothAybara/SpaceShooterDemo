@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
+    ShipClass ship;
+    simpleProjectile projectile; 
     public GameObject pauseMenuUI;
     public Transform firePoint;
+
     public GameObject bulletPrefab;
     public GameObject ParentObject;
     public GameObject Target;
@@ -18,6 +21,7 @@ public class CombatController : MonoBehaviour
     //     bulletPrefab = WeaponsList[0];
     // }
 
+    
     public void SetFirePoint(GameObject caller){
         // Gets current ship from parent data object
         // Debug.Log("fish");
@@ -47,4 +51,5 @@ public class CombatController : MonoBehaviour
             bullet.GetComponent<Projectile>().dir = dir;
         }
     }
-}
+}   
+

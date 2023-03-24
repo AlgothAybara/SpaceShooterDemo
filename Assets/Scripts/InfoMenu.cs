@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class InfoMenu : MonoBehaviour
 {
     private ShipClass ship;
 
     public GameObject ArmorText, ShieldText, IntegrityText, FuelText, TurnRateText, AccelerationRateText,
             DecelerationRateText, ShipClassText, ShipMassText, MaxSpeedText, ShipNameText;
-
-    public string ArmorValue, ShieldValue, IntegrityValue, FuelValue, TurnRate, AccelerationRate,
-                DecelerationRate, ShipClass, ShipMass, MaxSpeed, ShipName;
 
     
     //List the path to access all the ship information
@@ -26,27 +24,27 @@ public class InfoMenu : MonoBehaviour
     //This will list all the values of each component into a string, then displayed in a textbox in PlayerDataMenu
     public void StorePlayerData()
     { 
-        ShipName = ShipNameText.GetComponent<Text>().text = "Ship Name: " + ship.shipName;
+        ShipNameText.GetComponent<Text>().text = "Ship Name: " + ship.shipName;
         
-        ArmorValue = ArmorText.GetComponent<Text>().text = "Armor Level: " + ship.armor.currentValue;
+        ArmorText.GetComponent<Text>().text = "Armor Level: " + ship.armor.currentValue;
 
-        ShieldValue = ShieldText.GetComponent<Text>().text = "Shield Level: " + ship.shield.currentValue;
+        ShieldText.GetComponent<Text>().text = "Shield Level: " + ship.shield.currentValue;
 
-        IntegrityValue = IntegrityText.GetComponent<Text>().text = "Integrity Level: " + ship.integrity.currentValue;
+        IntegrityText.GetComponent<Text>().text = "Integrity Level: " + ship.integrity.currentValue;
 
-        FuelValue = FuelText.GetComponent<Text>().text = "Fuel Level: " + ship.fuel.currentValue;
+        FuelText.GetComponent<Text>().text = "Fuel Level: " + ship.fuel.currentValue;
 
-        TurnRate = TurnRateText.GetComponent<Text>().text = "Turn Rate: " + ship.turnRate;
+        TurnRateText.GetComponent<Text>().text = "Turn Rate: " + ship.turnRate;
 
-        AccelerationRate = AccelerationRateText.GetComponent<Text>().text = "Acceleration Rate: " + ship.accelerationRate;
+        AccelerationRateText.GetComponent<Text>().text = "Acceleration Rate: " + ship.accelerationRate;
 
-        DecelerationRate = DecelerationRateText.GetComponent<Text>().text = "Deceleration Rate: " + ship.decelerationRate;
+        DecelerationRateText.GetComponent<Text>().text = "Deceleration Rate: " + ship.decelerationRate;
 
-        ShipClass = ShipClassText.GetComponent<Text>().text = "Ship Class: " + ship.shipClass;
+        ShipClassText.GetComponent<Text>().text = "Ship Class: " + ship.shipClass;
 
-        ShipMass = ShipMassText.GetComponent<Text>().text = "Ship Mass: " + ship.shipMass;
+        ShipMassText.GetComponent<Text>().text = "Ship Mass: " + ship.shipMass;
 
-        MaxSpeed = MaxSpeedText.GetComponent<Text>().text = "Max Speed: " + ship.maxSpeed;
+        MaxSpeedText.GetComponent<Text>().text = "Max Speed: " + ship.maxSpeed;
 
     }
 

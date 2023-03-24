@@ -44,7 +44,7 @@ public class ShipClass : MonoBehaviour
         shield.RegenCurrent();
     }
 
-     public void ApplyDamage(int damage){
+    public int ApplyDamage(int damage){
 
 
         // Debug.Log(other.gameObject.GetComponent<ShipClass>().shield.currentValue);
@@ -52,6 +52,8 @@ public class ShipClass : MonoBehaviour
         if(shield.GetCurrent() > 0)
         {
             shield.UpdateCurrent(damage);
+
+            return (int)damage;
         } 
         else
         {
@@ -59,12 +61,14 @@ public class ShipClass : MonoBehaviour
 
             armor.UpdateCurrent(armorDamage);
             integrity.UpdateCurrent(damage - armorDamage);
-        }
+            
+            if(integrity.GetCurrent() <= 0){
+                Debug.Log(gameObject + " Destroyed");
+                Destroy(transform.parent.gameObject);
+                Destroy(gameObject);
+            }
 
-        if(integrity.GetCurrent() <= 0){
-            Debug.Log(gameObject + " Destroyed");
-            Destroy(transform.parent.gameObject);
-            Destroy(gameObject);
+            return (int)(Mathf.Floor(damage - armorDamage));
         }
     }
 }
