@@ -60,10 +60,10 @@ public class NPCData : CharacterData
     }
     void ColorChanger()
     {
-        Color shieldHealthColor = Color.Lerp(Color.red, Color.blue, (ship.shield.currentValue / ship.shield.maxValue));
+        Color shieldHealthColor = Color.Lerp(Color.blue, Color.blue, (ship.shield.currentValue / ship.shield.maxValue));
         shieldHealth.color = shieldHealthColor;
 
-        Color integrityHealthColor = Color.Lerp(Color.red, Color.yellow, (ship.integrity.currentValue / ship.integrity.maxValue));
+        Color integrityHealthColor = Color.Lerp(Color.red, Color.green, (ship.integrity.currentValue / ship.integrity.maxValue));
         integrityHealth.color = integrityHealthColor;
 
     }

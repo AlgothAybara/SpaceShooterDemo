@@ -21,15 +21,15 @@ public class PlayerData : CharacterData
     void ColorChanger()
     {
         //Shield will go from blue to red
-        Color shieldHealthColor = Color.Lerp(Color.red, Color.blue, (ship.shield.currentValue / ship.shield.maxValue));
+        Color shieldHealthColor = Color.Lerp(Color.blue, Color.blue, (ship.shield.currentValue / ship.shield.maxValue));
         shieldHealth.color = shieldHealthColor;
 
         //Armor will go from green to red
-        Color armorHealthColor = Color.Lerp(Color.red, Color.green, (ship.armor.currentValue / ship.armor.maxValue));
+        Color armorHealthColor = Color.Lerp(Color.red, Color.gray, (ship.armor.currentValue / ship.armor.maxValue));
         armorHealth.color = armorHealthColor;
 
         //Integrity will go from yellow to red
-        Color shipIntegrityColor = Color.Lerp(Color.red, Color.yellow, (ship.integrity.currentValue / ship.integrity.maxValue));
+        Color shipIntegrityColor = Color.Lerp(Color.red, Color.green, (ship.integrity.currentValue / ship.integrity.maxValue));
         shipIntegrity.color = shipIntegrityColor;
 
     }
