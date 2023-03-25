@@ -30,7 +30,8 @@ public class AI_Fighter : AI_NPC
         bool dist = (distance < 50);
         bool spd = (speed > 10);
 
-        // Debug.Log("\n Stop: " + stop + "Approach: " + approach
+        // Debug.Log("Target: " + target
+        //     + "\n Stop: " + stop + " Approach: " + approach
         //     + "\n Dist: " + dist + " Distance: " + distance
         //     + "\n Spd: " + spd + " Speed: " + movement.GetSpeed()
         //     + "\n Dir: " + dir + " Dot: " + dot
@@ -60,8 +61,10 @@ public class AI_Fighter : AI_NPC
             }
             // if less
             else {
-                // Debug.Log("Move, !a \n");
-                // Debug.Log(target);
+                // Debug.Log("Move, !a");
+                if(!dist){
+                    stop = true;
+                }
                 movement.vAxis = 1;
             }
             

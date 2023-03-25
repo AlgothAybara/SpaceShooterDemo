@@ -47,12 +47,17 @@ public class NPCData : CharacterData
     // }
 
     virtual public void OnTriggerEnter2D(Collider2D other){
-        
+        // Debug.Log("Other Parent: " + other.gameObject.GetComponent<Projectile>().parent
+        //     + "This: " + transform.GetChild(0).transform
+        //     + "Comparison: " + (other.gameObject.GetComponent<Projectile>().parent != transform.GetChild(0).transform)
+        // );
+
         if (other.gameObject.tag == "Projectile"
-                && other.gameObject.GetComponent<Projectile>().parent != transform
+                && other.gameObject.GetComponent<Projectile>().parent != transform.GetChild(0).transform
                 && currentShip.GetComponent<ShipClass>().shield.currentValue < currentShip.GetComponent<ShipClass>().shield.maxValue
             )
         {
+            Debug.Log("Assigning Target: " + other.gameObject.GetComponent<Projectile>().parent.gameObject);
             target = other.gameObject.GetComponent<Projectile>().parent.gameObject;
             this.currentAI = aggresive;
             AI_index = 0;
