@@ -48,15 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1099baa02b0754c9bf63e0802b69e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
   firePoint: {fileID: 501535275229016329, guid: 29b27522f75d31d4c956555fb4a30f2c, type: 3}
-  damageIndicator: {fileID: 2581546162818250076, guid: f2809ab226aca8242a61e2f00a4d92cd, type: 3}
   bulletPrefab: {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
   ParentObject: {fileID: 3141890635837529085}
   Target: {fileID: 0}
-  WeaponsList:
-  - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
+  WeaponsList: []
   nextShot: 0
+  RoF: 0
 --- !u!114 &3141890635837529087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +75,7 @@ MonoBehaviour:
   shieldHealth: {fileID: 0}
   armorHealth: {fileID: 0}
   shipIntegrity: {fileID: 0}
+  LandButton: {fileID: 0}
 --- !u!114 &3141890635837529086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!210 &3141890635837528971
 SortingGroup:

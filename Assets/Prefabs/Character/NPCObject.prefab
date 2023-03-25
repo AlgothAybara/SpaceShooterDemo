@@ -208,9 +208,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   ParentObject: {fileID: 7574395453819287555}
   Target: {fileID: 0}
-  WeaponsList:
-  - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
+  WeaponsList: []
   nextShot: 0
+  RoF: 0
 --- !u!114 &646500640558436701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &7574395453819287552
 MonoBehaviour:
