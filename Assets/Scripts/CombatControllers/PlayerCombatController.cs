@@ -7,6 +7,11 @@ public class PlayerCombatController : CombatController
 
     private int targetIndex = -1;
     // Update is called once per frame
+    public override void Start(){
+        base.Start();
+        SetFirePoint(gameObject);
+    }
+    
     void Update()
     {
         bulletPrefab = WeaponsList[0];
@@ -31,9 +36,5 @@ public class PlayerCombatController : CombatController
         }
     }
  
-    void Start(){
-        nextShot = 0;
-        SetFirePoint(gameObject);
-        bulletPrefab = WeaponsList[0];
-    }
+    
 }

@@ -11,14 +11,11 @@ public class Projectile : MonoBehaviour
     public Vector3 dir;
 
     public GameObject damageIndicator; 
-
     public float rateOfFire = 0.5f;
-
     public int damage = 5; //How much damage?
-
     public float force; //How fast/slow?
-
     public int time; //How long before it dies/killed
+    public float rand; //Random variation used in instantiation
 
     virtual public void Start() {
          // gets bullet rigidbody

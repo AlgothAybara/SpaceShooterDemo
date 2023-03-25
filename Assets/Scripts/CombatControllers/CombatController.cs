@@ -5,7 +5,6 @@ using UnityEngine;
 public class CombatController : MonoBehaviour
 {
     ShipClass ship;
-    simpleProjectile projectile; 
     public Transform firePoint;
 
     public GameObject bulletPrefab;
@@ -13,12 +12,13 @@ public class CombatController : MonoBehaviour
     public GameObject Target;
     public List<GameObject> WeaponsList;
     public float nextShot = 0;
+    public float RoF;
 
-    // void Start(){
-    //     nextShot = 0;
-    //     SetFirePoint();
-    //     bulletPrefab = WeaponsList[0];
-    // }
+    public virtual void Start(){
+        nextShot = 0;
+        bulletPrefab = WeaponsList[0];
+        RoF = bulletPrefab.GetComponent<Projectile>().rateOfFire;
+    }
 
     
     public void SetFirePoint(GameObject caller){
@@ -35,10 +35,11 @@ public class CombatController : MonoBehaviour
     {
         if(Time.time> nextShot && Time.timeScale != 0)
         {   
+            float variation = bulletPrefab.GetComponent<Projectile>().rand;
             // sets the shot cooldown
-            nextShot = Time.time + bulletPrefab.GetComponent<Projectile>().rateOfFire;
+            nextShot = Time.time + RoF;
             // Creates a variation float
-            float rand = Random.Range(-.1f, .1f);
+            float rand = Random.Range(-variation, variation);
             // creates variation Vector3
             Vector3 randVariation = new Vector3(rand, 0, 0);
             // Adds variation to direction vector3
