@@ -15,7 +15,6 @@ public class PlayerData : CharacterData
     public override void Start()
     {
         base.Start();
-        currentShip.transform.SetAsFirstSibling();        
     }
 
     //Color changes as health goes down for each respective health bar

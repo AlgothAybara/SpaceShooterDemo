@@ -16,6 +16,7 @@ public class CharacterData : MonoBehaviour
     public virtual void Start()
     {
         SetShip();
+        currentShip.transform.SetAsFirstSibling();        
         // RandomRotation();
 
     }
