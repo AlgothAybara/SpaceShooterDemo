@@ -16,8 +16,11 @@ public class CombatController : MonoBehaviour
 
     public virtual void Start(){
         nextShot = 0;
-        bulletPrefab = WeaponsList[0];
-        RoF = bulletPrefab.GetComponent<Projectile>().rateOfFire;
+        WeaponsList = ParentObject.transform.GetChild(0).GetComponent<ShipClass>().WeaponsList;
+        if (WeaponsList.Count > 0) {
+            bulletPrefab = WeaponsList[0];
+            RoF = bulletPrefab.GetComponent<Projectile>().rateOfFire;
+        }
     }
 
     
@@ -33,7 +36,7 @@ public class CombatController : MonoBehaviour
 
     public void Shoot()
     {
-        if(Time.time> nextShot && Time.timeScale != 0)
+        if(Time.time> nextShot && Time.timeScale != 0 && bulletPrefab != null)
         {   
             float variation = bulletPrefab.GetComponent<Projectile>().rand;
             // sets the shot cooldown
