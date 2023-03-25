@@ -8,6 +8,7 @@ public class PlayerData : CharacterData
     public Image armorHealth; //UI image of armor health bar
     public Image shipIntegrity; //UI image of ship's structural integrity.
     float lerpSpeed; //Math function to smooth out UI Image with health
+    public Button LandButton;
     PauseMenu pauseMenu;
 
 
@@ -55,6 +56,7 @@ public class PlayerData : CharacterData
     {
         if(other.gameObject.tag == "Planet")
         {
+
             // Debug.Log("Arrived at Planet");
             if (Input.GetKeyDown(KeyCode.L))
             {
@@ -69,6 +71,16 @@ public class PlayerData : CharacterData
             }
         }
     }
+
+    // public void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.tag == "Planet")
+    //     {
+    //         Instantiate(LandButton, Vector3.down, Quaternion.identity);
+    //     }
+    // }
+
+
 
 
 }
