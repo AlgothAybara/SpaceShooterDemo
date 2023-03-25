@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5936872198936489167
 Transform:
@@ -219,6 +219,8 @@ MonoBehaviour:
   turnRate: 150
   accelerationRate: 400
   decelerationRate: 0.1
+  WeaponsList:
+  - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
   armor:
     currentValue: 0
     maxValue: 100
