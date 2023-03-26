@@ -17,6 +17,7 @@ public class SystemManager : MonoBehaviour
     public int currentChance;
     private int[] spawnState = {0,2};
     private RouletteSelect Rselect;
+    public float TS;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class SystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Time.timeScale = TS;
     }
 
     void FixedUpdate() {
