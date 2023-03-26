@@ -33,7 +33,7 @@ public class SystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = TS;
+        // Time.timeScale = TS;
     }
 
     void FixedUpdate() {
