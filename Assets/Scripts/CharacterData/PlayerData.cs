@@ -72,27 +72,19 @@ public class PlayerData : CharacterData
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D enter)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (enter.gameObject.tag == "Planet") 
+        if (other.gameObject.tag == "Planet") 
         {
             LandButton.enabled = true;
         }
-        else
-        {
-            LandButton.enabled = false;
-        }
     }
 
-    public void OnTriggerExit2D(Collider2D exit)
+    public void OnTriggerExit2D(Collider2D other)
     {
-        if (exit.gameObject.tag == "Planet")
+        if (other.gameObject.tag == "Planet")
         {
              LandButton.enabled = false;
-        }
-        else
-        {
-             LandButton.enabled = true;
         }
 
     }
