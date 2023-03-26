@@ -16,10 +16,13 @@ public class NPCCombatController : CombatController
     {
 
         if(firePoint==null){
-            SetFirePoint(gameObject);
+            SetFirePoint();
         }
-        if(bulletPrefab==null){
-            bulletPrefab = WeaponsList[0];
+        if(WeaponsList.Count == 0){
+            SetWeaponList();
         }
+        // if(bulletPrefab==null){
+        //     bulletPrefab = WeaponsList[0];
+        // }
     }
 }

@@ -15,23 +15,28 @@ public class CombatController : MonoBehaviour
     public float RoF;
 
     public virtual void Start(){
-        nextShot = 0;
-        WeaponsList = ParentObject.transform.GetChild(0).GetComponent<ShipClass>().WeaponsList;
-        if (WeaponsList.Count > 0) {
-            bulletPrefab = WeaponsList[0];
-            RoF = bulletPrefab.GetComponent<Projectile>().rateOfFire;
-        }
+        nextShot = 0;        
     }
 
     
-    public void SetFirePoint(GameObject caller){
+    public void SetFirePoint(){
         // Gets current ship from parent data object
         // Debug.Log("fish");
         // Debug.Log(transform.GetChild(0).transform);
         // Debug.Log(transform.GetChild(0).transform.GetChild(0).transform);
         firePoint = transform.GetChild(0).transform.GetChild(0).transform;
+        SetWeaponList();
         // Debug.Log(firePoint);
 
+    }
+
+    public void SetWeaponList(){
+        WeaponsList = ParentObject.transform.GetChild(0).GetComponent<ShipClass>().WeaponsList;
+        Debug.Log(WeaponsList[0]);
+        if (WeaponsList.Count > 0) {
+            bulletPrefab = WeaponsList[0];
+            RoF = bulletPrefab.GetComponent<Projectile>().rateOfFire;
+        }
     }
 
     public void Shoot()

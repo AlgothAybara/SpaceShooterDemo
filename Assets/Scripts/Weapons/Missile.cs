@@ -66,7 +66,7 @@ public class Missile : Projectile
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;
         }
-        else if (other.gameObject.transform == Target.transform.GetChild(0)){
+        else if (other.gameObject == Target){
             Destroy(gameObject);
             other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;

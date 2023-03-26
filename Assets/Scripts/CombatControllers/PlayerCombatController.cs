@@ -9,7 +9,8 @@ public class PlayerCombatController : CombatController
     // Update is called once per frame
     public override void Start(){
         base.Start();
-        SetFirePoint(gameObject);
+        SetFirePoint();
+        SetWeaponList();
     }
     
     void Update()
@@ -26,8 +27,11 @@ public class PlayerCombatController : CombatController
 
             if (NPCs.Count <= targetIndex || Target == null){
                 targetIndex = 0;
+                Target = NPCs[targetIndex];
             }
-            Target = NPCs[targetIndex];
+            else {
+                Target = NPCs[targetIndex].transform.GetChild(0).gameObject;
+            }
         } 
         if((Input.GetButton("Jump")||Input.GetButtonDown("Jump")))
         {   
