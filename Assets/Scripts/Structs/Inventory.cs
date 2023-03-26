@@ -17,7 +17,13 @@ public class Inventory
         return inventory[key];
     }
 
-    virtual public void UpdateCount(GameObject key){
-
+    virtual public bool UpdateCount(GameObject key, int num){
+        if (GetCount(key) + num < 0){
+            return false;
+        }
+        else {
+            inventory[key] += num;
+            return true;
+        }
     }
 }
