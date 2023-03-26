@@ -15,6 +15,8 @@ public class PlayerData : CharacterData
     public override void Start()
     {
         base.Start();
+        LandButton.enabled = false;
+
     }
 
     //Color changes as health goes down for each respective health bar
@@ -55,7 +57,6 @@ public class PlayerData : CharacterData
     {
         if(other.gameObject.tag == "Planet")
         {
-
             // Debug.Log("Arrived at Planet");
             if (Input.GetKeyDown(KeyCode.L))
             {
@@ -71,17 +72,30 @@ public class PlayerData : CharacterData
         }
     }
 
-    // public void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.tag == "Planet")
-    //     {
-    //         Instantiate(LandButton, Vector3.down, Quaternion.identity);
-    //     }
-    // }
+    public void OnTriggerEnter2D(Collider2D enter)
+    {
+        if (enter.gameObject.tag == "Planet") 
+        {
+            LandButton.enabled = true;
+        }
+        else
+        {
+            LandButton.enabled = false;
+        }
+    }
 
+    public void OnTriggerExit2D(Collider2D exit)
+    {
+        if (exit.gameObject.tag == "Planet")
+        {
+             LandButton.enabled = false;
+        }
+        else
+        {
+             LandButton.enabled = true;
+        }
 
-
-
+    }
 }
 
    
