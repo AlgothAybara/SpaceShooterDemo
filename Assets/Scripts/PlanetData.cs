@@ -21,9 +21,9 @@ public class PlanetData : MonoBehaviour
         // planet = GameObject.FindGameObjectWithTag("Planet");
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        return;
-    }
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     return;
+    // }
 }
 
