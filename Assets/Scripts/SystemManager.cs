@@ -34,6 +34,9 @@ public class SystemManager : MonoBehaviour
     void Update()
     {
         // Time.timeScale = TS;
+        if (Rselect == null){
+            Rselect = new RouletteSelect();
+        }
     }
 
     void FixedUpdate() {
