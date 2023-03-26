@@ -32,7 +32,7 @@ public class CombatController : MonoBehaviour
 
     public void SetWeaponList(){
         WeaponsList = ParentObject.transform.GetChild(0).GetComponent<ShipClass>().WeaponsList;
-        Debug.Log(WeaponsList[0]);
+        // Debug.Log(WeaponsList[0]);
         if (WeaponsList.Count > 0) {
             bulletPrefab = WeaponsList[0];
             RoF = bulletPrefab.GetComponent<Projectile>().rateOfFire;

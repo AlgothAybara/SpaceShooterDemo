@@ -37,7 +37,7 @@ public class NPCData : CharacterData
             AI_index += 1;
         }
         else if (updateState && AI_index == AI_list.Count){
-            Debug.Log(currentAI);
+            // Debug.Log(currentAI);
         }
         // Debug.Log(this.currentAI);
     }
