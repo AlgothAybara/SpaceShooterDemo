@@ -9,7 +9,7 @@ public class PlanetData : MonoBehaviour
     public Collision collision;
     public Inventory marketInventory;
     public Inventory shipInventory;
-    public bool market, shipyward;
+    public bool market, shipyard;
 
     public string Name;
     public string Desc;

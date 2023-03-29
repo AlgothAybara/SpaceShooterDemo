@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class PlanetMenu : MonoBehaviour
 {
+    public GameObject Planet;
     private PlanetData planet;
+    public List<GameObject> PlanetList;
 
     public GameObject PlanetName, PlanetDesc, PlanetImage;
     
     //List the path to access all the ship information
     void Start()
-    {
-        
-        planet = GameObject.Find("SystemManager").transform.GetChild(0).GetComponent<PlayerData>().currentShip.GetComponent<PlanetData>();
-        
+    { 
     }
 
     //This will list all the values of each component into a string, then displayed in a textbox in PlayerDataMenu
@@ -30,6 +29,11 @@ public class PlanetMenu : MonoBehaviour
     //Keep information updated consistantly throughout gameplay
     void Update()
     {
+        if (Planet != null)
+        {
+            planet = Planet.GetComponent<PlanetData>();    
+        }
+
         StorePlanetData();
     }
 

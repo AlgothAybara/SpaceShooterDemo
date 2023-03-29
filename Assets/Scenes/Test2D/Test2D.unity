@@ -464,10 +464,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1c23fca0d524ca24681d08d5aa740f1a, type: 3}
-    m_FontSize: 30
+    m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -644,6 +644,26 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3934010682702850949, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850949, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850949, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850949, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.3017532
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850949, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850949, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_Colors.m_SelectedColor.a
       value: 0
       objectReference: {fileID: 0}
@@ -684,12 +704,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3934010682702850950, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850950, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934010682702850950, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -205
+      value: 53.5
       objectReference: {fileID: 0}
     - target: {fileID: 3934010682702850951, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805382517819724656, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
+      propertyPath: moveSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4805382517819724657, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: LandButton
@@ -713,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 294ce877f44d57f47b70e66eff7fb1cd, type: 3}
     - target: {fileID: 5209335473970255352, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: Desc
-      value: Desolate Desert lands with little to no civiliazation. Most goods available
+      value: Desolate desert lands with little to no civiliazation. Most goods available
         here are sparce, and are usually secondhand commodities.
       objectReference: {fileID: 0}
     - target: {fileID: 5209335473970255352, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
@@ -742,15 +774,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645589520440495760, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 268.5746
+      value: 276.341
       objectReference: {fileID: 0}
     - target: {fileID: 7645589520440495760, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -267
+      value: -220.40128
       objectReference: {fileID: 0}
     - target: {fileID: 7645589520440495760, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.4611053
+      value: 4.4611206
       objectReference: {fileID: 0}
     - target: {fileID: 7645589520440495761, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_text
@@ -806,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645589520652416750, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7645589520910325779, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_Sprite
@@ -818,15 +850,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645589521751280452, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7645589521751280452, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7645589521751280452, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7816062167800131089, guid: 2ef8d49d1888e034293b032dacfdbf2f, type: 3}
       propertyPath: m_Name

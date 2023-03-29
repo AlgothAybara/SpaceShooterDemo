@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerData : CharacterData
 {
+    public Rigidbody2D rb;
+    public GameObject PlanetMenu;
     public Image shieldHealth; //UI image of shield health bar
     public Image armorHealth; //UI image of armor health bar
     public Image shipIntegrity; //UI image of ship's structural integrity.
@@ -15,7 +17,6 @@ public class PlayerData : CharacterData
     public override void Start()
     {
         base.Start();
-        LandButton.enabled = false;
 
     }
 
@@ -52,41 +53,32 @@ public class PlayerData : CharacterData
         ColorChanger();
     }
 
-    //This handles a collision trigger for landing on planets.
     public void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Planet")
+         if (other.gameObject.tag == "Planet" && rb.velocity.magnitude < 10) 
         {
-            // Debug.Log("Arrived at Planet");
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                if (pauseMenu.isGamePaused) //This is set to false to play
-                {
-                    pauseMenu.Resume();
-                }
-                else //If pushed, then it's set to true to pause
-                {
-                    pauseMenu.Pause();
-                }
-            }
-        }
+             LandButton.gameObject.SetActive(true);
+
+            // if(other.gameObject.tag == "Planet")
+            // {
+            // // Debug.Log("Arrived at Planet");
+            //     if (Input.GetKeyDown(KeyCode.L))
+            //     {
+            //         pauseMenu.Pause();
+            //     }
+            // }
+
+            PlanetMenu.transform.GetComponent<PlanetMenu>().Planet = other.gameObject;
+        } 
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Planet") 
-        {
-            LandButton.enabled = true;
-        }
-    }
-
+    //Once ship leaves planet, land button will not be usable. 
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Planet")
         {
-             LandButton.enabled = false;
+            LandButton.gameObject.SetActive(false);
         }
-
     }
 }
 
