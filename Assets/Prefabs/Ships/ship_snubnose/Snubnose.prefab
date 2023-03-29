@@ -220,7 +220,7 @@ MonoBehaviour:
   accelerationRate: 400
   decelerationRate: 0.1
   WeaponsList:
-  - {fileID: 4935930732290159341, guid: 028cbb3fa6e765f448dad415028ba231, type: 3}
+  - {fileID: 4935930732290159341, guid: b1deb8cb77c4bc14db614428412f2228, type: 3}
   armor:
     currentValue: 0
     maxValue: 100

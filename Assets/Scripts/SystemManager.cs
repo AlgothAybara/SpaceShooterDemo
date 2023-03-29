@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SystemManager : MonoBehaviour
 {
@@ -47,8 +48,25 @@ public class SystemManager : MonoBehaviour
         }
     }
 
+    public void ReloadScene(Transform planetPos){
+        GameObject playerPos = gameObject.transform.GetChild(0).gameObject; 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        playerPos.transform.position = planetPos.position;
+        RandomRotation(playerPos);
+    }
+
     private Vector3 RandomLocation(){
         return Random.insideUnitCircle * maxDist;
+    }
+
+    // Sets object z rotation to random degree
+    void RandomRotation(GameObject character){
+        // gets copy of gameobject transform properties
+        var euler = transform.eulerAngles;
+        // sets z rotation to random angle
+        euler.z = Random.Range(0f, 360f);
+        // updates gameobject rotation
+        character.transform.eulerAngles = euler;
     }
 
     private void AttemptSpawn(){

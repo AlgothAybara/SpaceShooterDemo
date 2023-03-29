@@ -53,17 +53,6 @@ public class MovementController2D : MonoBehaviour
         return rb.velocity.magnitude;
     }
 
-    
-    // // Sets object z rotation to random degree
-    // void RandomRotation(){
-    //     // gets copy of gameobject transform properties
-    //     var euler = transform.eulerAngles;
-    //     // sets z rotation to random angle
-    //     euler.z = Random.Range(0f, 360f);
-    //     // updates gameobject rotation
-    //     transform.eulerAngles = euler;
-    // }
-
 
     public void Movement(){
         //Allows velocity decay when acceleration is 0

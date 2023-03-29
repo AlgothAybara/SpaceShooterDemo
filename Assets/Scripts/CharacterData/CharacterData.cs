@@ -26,9 +26,11 @@ public class CharacterData : MonoBehaviour
         ship = currentShip.GetComponent<ShipClass>();
         currentShip.transform.SetAsFirstSibling();        
     }
-    public void SetShip(GameObject Ship){
+    public void SetShip(GameObject newShip){
         // Instantiates Ship gameobject as a gameObject in the scene
-        currentShip = Instantiate(Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
+        Destroy(currentShip);
+        this.Ship = newShip;
+        currentShip = Instantiate(this.Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
         ship = currentShip.GetComponent<ShipClass>();
         currentShip.transform.SetAsFirstSibling();        
     }
