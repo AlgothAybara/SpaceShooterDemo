@@ -16,7 +16,6 @@ public class CharacterData : MonoBehaviour
     public virtual void Start()
     {
         SetShip();
-        currentShip.transform.SetAsFirstSibling();        
         // RandomRotation();
 
     }
@@ -25,7 +24,12 @@ public class CharacterData : MonoBehaviour
         // Instantiates player_data.Ship as a gameObject in the scene
         currentShip = Instantiate(this.Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
         ship = currentShip.GetComponent<ShipClass>();
-        // Sets the PlayerOnject as the parent of currentShip
-        // currentShip.transform.parent = this.transform;
+        currentShip.transform.SetAsFirstSibling();        
+    }
+     void SetShip(GameObject Ship){
+        // Instantiates Ship gameobject as a gameObject in the scene
+        currentShip = Instantiate(Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
+        ship = currentShip.GetComponent<ShipClass>();
+        currentShip.transform.SetAsFirstSibling();        
     }
 }
