@@ -31,5 +31,6 @@ public class CharacterData : MonoBehaviour
         Destroy(currentShip);
         this.Ship = newShip;
         ship = newShip.GetComponent<ShipClass>();
+        SetShip();
     }
 }

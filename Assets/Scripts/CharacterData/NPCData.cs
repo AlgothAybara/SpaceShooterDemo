@@ -31,7 +31,12 @@ public class NPCData : CharacterData
         HealthBarFiller();
     }     
     void FixedUpdate(){
-        bool updateState = this.currentAI.Execute(movement, combat, target);
+        bool updateState = false;
+        if (target == null){
+            updateState = true;
+        } else {
+            updateState = this.currentAI.Execute(movement, combat, target);
+        }
         if (updateState && AI_index < AI_list.Count){
             currentAI = AI_list[AI_index];
             AI_index += 1;
