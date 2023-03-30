@@ -30,9 +30,6 @@ public class CharacterData : MonoBehaviour
         // Instantiates Ship gameobject as a gameObject in the scene
         Destroy(currentShip);
         this.Ship = newShip;
-        Debug.Log(this.transform);
-        currentShip = Instantiate(this.Ship, this.transform.position, this.transform.rotation, this.transform) as GameObject;
-        ship = currentShip.GetComponent<ShipClass>();
-        currentShip.transform.SetAsFirstSibling();        
+        ship = newShip.GetComponent<ShipClass>();
     }
 }

@@ -69,6 +69,7 @@ public class PlayerData : CharacterData
             // }
 
             PlanetMenu.transform.GetComponent<PlanetMenu>().Planet = other.gameObject;
+            // LandButton.transform.GetComponent<LandClick>().PlanetObject = other.gameObject;
         } 
     }
 
