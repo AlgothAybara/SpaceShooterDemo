@@ -61,15 +61,11 @@ public class Missile : Projectile
         if (other.transform == parent || other.gameObject.tag == "Planet" || other.gameObject.tag == "Projectile" ){
             return;
         }
-        if (Target.tag == "Empty" && other.gameObject.tag == "Ship"){
+        if ((Target.tag == "Empty" && other.gameObject.tag == "Ship") || other.gameObject == Target){
             Destroy(gameObject);
-            other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
+            var dmg = other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
             Target = null;
+            DisplayDamageIndicators(dmg);
         }
-        else if (other.gameObject == Target){
-            Destroy(gameObject);
-            other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
-            Target = null;
-        } 
     }
 }

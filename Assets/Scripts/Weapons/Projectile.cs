@@ -34,19 +34,21 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    virtual public void OnTriggerEnter2D(Collider2D other){
-        
-        if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile"){
-            var dmg = other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
-            if (GetComponent<Renderer>().isVisible)
+    protected void DisplayDamageIndicators(int dmg){
+        if (GetComponent<Renderer>().isVisible)
             {
                 var di = Instantiate(damageIndicator, transform.position, Quaternion.identity);
                 di.GetComponent<DamageIndicator>().dmg = dmg;
             }
-            Destroy(gameObject);
+    }
 
-        }
+    virtual public void OnTriggerEnter2D(Collider2D other){
         
+        if (other.transform != parent && other.gameObject.tag != "Planet" && other.gameObject.tag != "Projectile"){
+            var dmg = other.gameObject.GetComponent<ShipClass>().ApplyDamage(damage);
+            DisplayDamageIndicators(dmg);
+            Destroy(gameObject);
+        }
         if(gameObject.tag == "Planet")
         {
             return;
