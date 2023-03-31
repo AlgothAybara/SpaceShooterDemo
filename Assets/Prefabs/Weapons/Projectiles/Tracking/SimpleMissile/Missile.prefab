@@ -151,7 +151,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   rb: {fileID: 7119990866256107010}
   dir: {x: 0, y: 0, z: 0}
-  damageIndicator: {fileID: 0}
+  damageIndicator: {fileID: 8716759808987261275, guid: f2809ab226aca8242a61e2f00a4d92cd, type: 3}
   rateOfFire: 1
   damage: -10
   force: 100

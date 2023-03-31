@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7495566262049814484}
   - component: {fileID: 1663342403517341746}
   m_Layer: 8
-  m_Name: Test Projectile
+  m_Name: TestProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   damageIndicator: {fileID: 8716759808987261275, guid: f2809ab226aca8242a61e2f00a4d92cd, type: 3}
   rateOfFire: 0.1
-  damage: -10
+  damage: -5
   force: -300
   time: 5
   rand: 0.05
