@@ -34,6 +34,7 @@ public class NPCData : CharacterData
         bool updateState = false;
         if (target == null){
             updateState = true;
+            target = GameObject.Find("SystemManager").transform.GetComponent<SystemManager>().SelectPlanet();
         } else {
             updateState = this.currentAI.Execute(movement, combat, target);
         }

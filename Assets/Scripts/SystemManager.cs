@@ -67,9 +67,13 @@ public class SystemManager : MonoBehaviour
 
     }
 
+    public GameObject SelectPlanet(){
+        return Rselect.Select(Planets, PlanetBias);
+    }
+
     private void SpawnNPC(Vector3 location, int state){
         var ship = spawnableShips[Random.Range(0, spawnableShips.Count)];
-        var planet = Rselect.Select(Planets, PlanetBias);
+        var planet = SelectPlanet();
         var NPC = Instantiate(NPCPrefab, 
                     location, 
                     ship.transform.rotation,
